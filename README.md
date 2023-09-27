@@ -1,0 +1,33 @@
+# Tibame Spring 教學專案
+
+# 目錄
+
+Spring_0101_IOC_Quickstart
+Spring_0102_IOC_BeanNaming
+Spring_0103_IOC_Instantiating
+Spring_0104_IOC_DependencyInjection
+Spring_0105_IOC_CircularDependency
+Spring_0106_IOC_DependsOn
+Spring_0107_IOC_LazyInit
+Spring_0108_IOC_Autowiring
+Spring_0109_IOC_Lifecycle
+Spring_0110_IOC_BeanScope
+Spring_0111_IOC_ComponentScan
+Spring_0112_IOC_Autowired
+Spring_0113_IOC_Lifecycle2
+Spring_0114_IOC_BeanConfig
+Spring_0115_IOC_ServletIntegrate
+Spring_0201_AOP_Introduction
+Spring_0202_AOP_XMLConfig
+Spring_0203_AOP_AspectJConfig
+Spring_0301_HBNT_HibernateTemplate
+Spring_0302_HBNT_SessionFactory
+Spring_0303_HBNT_TransactionManager
+Spring_0304_HBNT_TransactionDetail
+
+# 近日工事 :wrench:
+
+# 環境設置
+
+# 操作方法
+

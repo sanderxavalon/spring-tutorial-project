@@ -1,7 +1,32 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+          org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+      </param-value>
+	</context-param>
+	<!-- Configuration locations must consist of one or more comma- or space-delimited 
+		fully-qualified @Configuration classes. Fully-qualified packages may also 
+		be specified for component-scanning -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>com.tibame.tutorial.AppConfig</param-value>
+	</context-param>
+	<!-- <context-param> <param-name>contextConfigLocation</param-name> <param-value>/WEB-INF/spring-tutorial.xml</param-value> 
+		</context-param> -->
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>com.tibame.tutorial.HelloWorld</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/helloworld</url-pattern>
+	</servlet-mapping>
 </web-app>

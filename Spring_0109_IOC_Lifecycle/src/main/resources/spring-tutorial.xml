@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="battery" class="com.tibame.tutorial.beans.Battery" />
+    
+    <bean id="engine" class="com.tibame.tutorial.beans.Engine">
+       	<constructor-arg type="java.lang.String" value="Mazda"/>
+    	<constructor-arg type="java.lang.Integer" value="50"/>
+    </bean>
+    
+    <bean id="tireA" class="com.tibame.tutorial.beans.tire.BenzTire" primary="true">
+		<constructor-arg value="10"/>
+	</bean>
+	
+	<bean id="tireB" class="com.tibame.tutorial.beans.tire.BMWTire">
+		<constructor-arg type="java.lang.Integer" value="20"/>
+	</bean>
+
+	<bean id="car" class="com.tibame.tutorial.beans.Car" autowire="byType" init-method="init" destroy-method="destroy"/>
+	
+</beans>

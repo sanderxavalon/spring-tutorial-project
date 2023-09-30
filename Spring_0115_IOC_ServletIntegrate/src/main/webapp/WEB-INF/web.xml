@@ -8,19 +8,18 @@
 
 	<context-param>
 		<param-name>contextClass</param-name>
-		<param-value>
-          org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-      </param-value>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 	</context-param>
-	<!-- Configuration locations must consist of one or more comma- or space-delimited 
-		fully-qualified @Configuration classes. Fully-qualified packages may also 
-		be specified for component-scanning -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>com.tibame.tutorial.AppConfig</param-value>
 	</context-param>
-	<!-- <context-param> <param-name>contextConfigLocation</param-name> <param-value>/WEB-INF/spring-tutorial.xml</param-value> 
-		</context-param> -->
+	<!-- 
+	<context-param> 
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-tutorial.xml</param-value> 
+	</context-param>
+	 -->
 	<servlet>
 		<servlet-name>HelloWorld</servlet-name>
 		<servlet-class>com.tibame.tutorial.HelloWorld</servlet-class>

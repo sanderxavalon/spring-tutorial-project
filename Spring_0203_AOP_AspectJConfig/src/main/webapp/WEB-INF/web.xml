@@ -14,12 +14,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>com.tibame.tutorial.config.AppConfig</param-value>
 	</context-param>
-	<!-- 
-	<context-param> 
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-tutorial.xml</param-value> 
-	</context-param>
-	 -->
 	<servlet>
 		<servlet-name>HelloWorld</servlet-name>
 		<servlet-class>com.tibame.tutorial.HelloWorld</servlet-class>

@@ -5,12 +5,9 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,9 +27,6 @@ public class EmpVO {
 	private BigDecimal sal;
 	@Column
 	private BigDecimal comm;
-	@ManyToOne
-	@JoinColumn(name = "deptno")
-	private DeptVO deptVO;
 	
 	public Integer getEmpno() {
 		return empno;
@@ -70,23 +64,10 @@ public class EmpVO {
 	public void setComm(BigDecimal comm) {
 		this.comm = comm;
 	}
-	public DeptVO getDeptVO() {
-		return deptVO;
-	}
-	public void setDeptVO(DeptVO deptVO) {
-		this.deptVO = deptVO;
-	}
-	
-	public String toStringWithDept() {
-		return "EmpVO [empno=" + empno + ", ename=" + ename + ", job=" + job + ", hiredate=" + hiredate + ", sal=" + sal
-				+ ", comm=" + comm.toPlainString()+ ", deptVO=\n" + deptVO + "]\n";
-	}
 	@Override
 	public String toString() {
 		return "EmpVO [empno=" + empno + ", ename=" + ename + ", job=" + job + ", hiredate=" + hiredate + ", sal=" + sal
-				+ ", comm=" + comm.toPlainString() + "]\n";
+				+ ", comm=" + comm + "]";
 	}
-	
-	
 	
 }

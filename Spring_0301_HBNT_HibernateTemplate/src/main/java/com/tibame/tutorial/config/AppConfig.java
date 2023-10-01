@@ -9,11 +9,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan(basePackages = "com.tibame.tutorial")
 @EnableAspectJAutoProxy
+@EnableTransactionManagement
 public class AppConfig {
 	
 	@Bean
@@ -40,6 +43,13 @@ public class AppConfig {
 		HibernateTemplate hibernateTemplate = new HibernateTemplate();
 		hibernateTemplate.setSessionFactory(this.sessionFactory().getObject());
 		return hibernateTemplate;
+	}
+	
+	@Bean
+	public HibernateTransactionManager transactionManager() {
+		HibernateTransactionManager txManager = new HibernateTransactionManager();
+		txManager.setSessionFactory(this.sessionFactory().getObject());
+		return txManager;
 	}
 	
 	private final Properties hibernateProperties() {

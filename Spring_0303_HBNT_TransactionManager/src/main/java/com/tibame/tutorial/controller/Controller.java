@@ -24,8 +24,9 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		HibernateDAO dao = context.getBean(HibernateDAO.class);
-		resp.setContentType("text/html; charset=UTF-8");
+		resp.setContentType("application/json; charset=UTF-8");
 		PrintWriter writer = resp.getWriter();
+
 		String employeeJsonString = new Gson().toJson(dao.getAll());
 		writer.write(employeeJsonString);
 	}

@@ -45,8 +45,7 @@ public class Controller extends HttpServlet {
 			writer.write(new Gson().toJson("OK"));
 		} 
 		else {
-			String employeeJsonString = new Gson().toJson(dao.getAll());
-			writer.write(employeeJsonString);
+			writer.write(new Gson().toJson(dao.getAll()));
 		}
 	}
 	

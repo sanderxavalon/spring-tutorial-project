@@ -27,8 +27,26 @@ public class Controller extends HttpServlet {
 		resp.setContentType("application/json; charset=UTF-8");
 		PrintWriter writer = resp.getWriter();
 
-		String employeeJsonString = new Gson().toJson(dao.getAll());
-		writer.write(employeeJsonString);
+		var action = req.getParameter("action");
+		if("save".equals(action)) {
+			dao.save();
+			writer.write(new Gson().toJson("OK"));
+		}
+		else if ("update".equals(action)) {
+			dao.update();
+			writer.write(new Gson().toJson("OK"));
+		}
+		else if ("delete".equals(action)) {
+			dao.delete();
+			writer.write(new Gson().toJson("OK"));
+		}
+		else if ("savefail".equals(action)) {
+			dao.saveFail();
+			writer.write(new Gson().toJson("OK"));
+		} 
+		else {
+			writer.write(new Gson().toJson(dao.getAll()));
+		}
 	}
 	
 }

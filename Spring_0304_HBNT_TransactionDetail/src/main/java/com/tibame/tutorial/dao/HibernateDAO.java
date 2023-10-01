@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tibame.tutorial.vo.DeptVO;
 
+
 @Repository
+@Transactional
 public class HibernateDAO {
 	
 	private static final String GET_ALL_STMT = "from DeptVO order by deptno";
-	
-	int deptNo = 10;
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -29,37 +29,36 @@ public class HibernateDAO {
 		List<DeptVO> list = query.getResultList();
 		return list;
 	}
-
-	@Transactional
+	
 	public void save() {
-		
-		Session session = sessionFactory.getCurrentSession();
-		
-		deptNo = deptNo + 1;
+		DeptVO vo = new DeptVO();
+		vo.setDeptno(5);
+		vo.setDname("總經理");
+		vo.setLoc("新北新莊");
+		sessionFactory.getCurrentSession().save(vo);
+	}
+	
+	public void update() {
+		DeptVO vo = new DeptVO();
+		vo.setDeptno(1);
+		vo.setDname("總務處");
+		vo.setLoc("新北板橋");
+		sessionFactory.getCurrentSession().update(vo);
+	}
+	
+	public void delete() {
+		DeptVO vo = new DeptVO();
+		vo.setDeptno(5);
+		sessionFactory.getCurrentSession().delete(vo);
+	}
+	
+	public void saveFail() {
+		DeptVO vo = new DeptVO();
+		vo.setDeptno(1);
+		vo.setDname("不會成功");
+		vo.setLoc("這個成功糗了");
+		sessionFactory.getCurrentSession().save(vo);
+	}
 
-		DeptVO vo = new DeptVO();
-		vo.setDeptno(deptNo );
-		vo.setDname("重複ID");
-		vo.setLoc("成功就糗了");
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		session.save(vo);
-	}
-	
-	@Transactional()
-	public void save2() {
-		
-		Session session = sessionFactory.getCurrentSession();
-		deptNo = deptNo + 1;
-		DeptVO vo = new DeptVO();
-		vo.setDeptno(deptNo);
-		vo.setDname("重複ID");
-		vo.setLoc("成功就糗了");
-		session.save(vo);
-	}
-	
+
 }

@@ -3,11 +3,10 @@ package com.tibame.tutorial.beans;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Battery {
+public class PaymentService {
 
-	@Override
-	public String toString() {
-		return "Battery []";
+	public void pay() {
+		System.out.println("This is payservice!");
 	}
-	
+
 }

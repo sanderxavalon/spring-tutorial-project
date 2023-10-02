@@ -6,6 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @ComponentScan(basePackages = "com.tibame.tutorial")
+@EnableAspectJAutoProxy
 public class AppConfig {
 
 }

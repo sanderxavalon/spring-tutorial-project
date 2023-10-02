@@ -2,7 +2,7 @@ package com.tibame.lab.beans;
 
 import com.tibame.lab.beans.tire.ITire;
 
-public class Benz {
+public class BenzCar {
 	
 	private ITire tire;
 
@@ -14,6 +14,4 @@ public class Benz {
 		this.tire = tire;
 	}
 	
-	
-
 }

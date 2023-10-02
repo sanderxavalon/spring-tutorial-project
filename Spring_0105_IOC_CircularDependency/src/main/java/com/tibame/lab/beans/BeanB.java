@@ -4,8 +4,4 @@ public class BeanB {
 	
 	private BeanA beanA;
 
-	public void setBeanA(BeanA beanA) {
-		this.beanA = beanA;
-	}
-
 }

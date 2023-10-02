@@ -19,12 +19,12 @@ public class App {
 			return;
 		}
 		
-		if(burger.getCheeseOnTop().getType() != "Cheddar") {
+		if(!burger.getCheeseOnTop().getType().equals("Cheddar")) {
 			System.out.println("Fix your xml and get me a burger.");
 			return;
 		}
 		
-		if(burger.getCheeseOnBottom().getType() != "Cottage") {
+		if(!burger.getCheeseOnBottom().getType().equals("Cottage")) {
 			System.out.println("Fix your xml and get me a burger.");
 			return;
 		}

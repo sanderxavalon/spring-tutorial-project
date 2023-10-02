@@ -10,14 +10,26 @@
 
 	<context:component-scan base-package="com.tibame.tutorial"/>
 	
+	
+	<bean id="someBean" class="com.tibame.tutorial.aop.SomeBean" />
+	<bean id="beanA" class="com.tibame.tutorial.beans.BeanA" />
+	<bean id="beanB" class="com.tibame.tutorial.beans.BeanB" />
+	<bean id="beanC" class="com.tibame.tutorial.beans.BeanC" />
+	
     <aop:config>
     	<aop:pointcut id="pointcut" expression="execution(* com.tibame.tutorial.beans..*())" />
 		<aop:aspect id="aspect" ref="someBean">
-			<aop:before pointcut-ref="pointcut" method="jointpointBefore" />
-	        <aop:after-returning pointcut-ref="pointcut" method="jointpointAfterReturn" returning="retVal"/>
-	        <aop:after-throwing pointcut-ref="pointcut" method="jointpointAfterThrow" throwing="exception"/>
-	        <aop:after pointcut-ref="pointcut" method="jointpointAfterFinally"/>	
-    	    <aop:around pointcut-ref="pointcut" method="jointpointAround"/>
+			<aop:pointcut id="before" expression="execution(* com.tibame.tutorial.beans.*.speak*())" />
+			<aop:pointcut id="after" expression="execution(* com.tibame.tutorial.beans.*.bye*())" />
+			<aop:pointcut id="afterReturn" expression="execution(* com.tibame.tutorial.beans.*.return*())" />
+			<aop:pointcut id="afterThrow" expression="execution(* com.tibame.tutorial.beans.*.throw*())" />
+			<aop:pointcut id="around" expression="execution(* com.tibame.tutorial.beans.*.*())" />
+			
+			<aop:before pointcut-ref="before" method="jointpointBefore" />
+	        <aop:after-returning pointcut-ref="after" method="jointpointAfterReturn" returning="retVal"/>
+	        <aop:after-throwing pointcut-ref="afterReturn" method="jointpointAfterThrow" throwing="exception"/>
+	        <aop:after pointcut-ref="afterThrow" method="jointpointAfterFinally"/>	
+    	    <aop:around pointcut-ref="around" method="jointpointAround"/>
 		</aop:aspect>
 	</aop:config>
 	

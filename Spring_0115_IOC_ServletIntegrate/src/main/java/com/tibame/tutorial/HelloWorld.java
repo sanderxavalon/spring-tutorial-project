@@ -16,13 +16,8 @@ import com.tibame.tutorial.beans.Car;
 public class HelloWorld extends HttpServlet {
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		WebApplicationContext ctx =
-			    WebApplicationContextUtils.
-			        getRequiredWebApplicationContext(
-			                         this.getServletContext());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		Car car = ctx.getBean(Car.class);
 		System.out.println(car.toString());
 		PrintWriter out = response.getWriter();

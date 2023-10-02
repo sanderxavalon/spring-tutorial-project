@@ -1,29 +1,35 @@
 package com.tibame.lab.beans;
 
-import org.springframework.stereotype.Component;
-
-import com.tibame.lab.beans.cheese.Cheese;
-
-@Component
 public class Burger {
 	
-	private Cheese cheeseOnTop;
-	private Cheese cheeseOnBottom;
-	private Lettuce lettuce;
-	private Tomato tomato;
+	private int size;
 	
+	private String cheeseType;
 	
-	public Burger(Cheese cheeseOnTop, Cheese cheeseOnBottom, Lettuce lettuce, Tomato tomato) {
-		this.cheeseOnTop = cheeseOnTop;
-		this.cheeseOnBottom = cheeseOnBottom;
-		this.lettuce = lettuce;
-		this.tomato = tomato;
+	private double price;
+
+	public int getSize() {
+		return size;
 	}
 
-	@Override
-	public String toString() {
-		return "Burger [cheeseOnTop=" + cheeseOnTop + ", cheeseOnBottom=" + cheeseOnBottom + ", lettuce=" + lettuce
-				+ ", tomato=" + tomato + "]";
+	public void setSize(int size) {
+		this.size = size;
 	}
 
+	public String getCheeseType() {
+		return cheeseType;
+	}
+
+	public void setCheeseType(String cheeseType) {
+		this.cheeseType = cheeseType;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
 }

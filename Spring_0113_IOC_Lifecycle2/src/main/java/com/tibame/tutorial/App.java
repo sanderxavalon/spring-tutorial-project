@@ -2,6 +2,7 @@ package com.tibame.tutorial;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import  org.springframework.beans.factory.support.DefaultSingletonBeanRegistry;
 
 public class App {
@@ -12,7 +13,7 @@ public class App {
 		
 	    DefaultSingletonBeanRegistry registry = (DefaultSingletonBeanRegistry) context.getAutowireCapableBeanFactory();
 	    registry.destroySingleton("Car");
-		
+	    
 	}
 
 }

@@ -2,13 +2,12 @@ package com.tibame.lab.beans;
 
 import com.tibame.lab.beans.tire.BMWTire;
 import com.tibame.lab.beans.tire.BenzTire;
-import com.tibame.lab.beans.tire.Tire;
 
 public class BenzCar {
 	
 	private BenzTire tireA;
 	private BMWTire tireB;
-	
+
 	public BenzCar(BenzTire tireA, BMWTire tireB) {
 		System.out.println("This is constructor!");
 		this.tireA = tireA;

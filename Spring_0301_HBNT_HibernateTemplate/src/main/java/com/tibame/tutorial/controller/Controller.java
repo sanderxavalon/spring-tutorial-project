@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -18,8 +16,6 @@ import com.tibame.tutorial.dao.HibernateDAO;
 
 public class Controller extends HttpServlet {
 	
-	Logger logger= LoggerFactory.getLogger(getClass());
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());

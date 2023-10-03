@@ -153,11 +153,3 @@ Annotation配置
 ## Spring_0303_HBNT_TransactionManager
 
 ## Spring_0304_HBNT_TransactionDetail
-
-
-# 近日工事 :wrench:
-
-# 環境設置
-
-# 操作方法
-

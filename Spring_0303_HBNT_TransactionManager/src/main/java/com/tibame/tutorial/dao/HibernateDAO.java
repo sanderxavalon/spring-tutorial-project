@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.tibame.tutorial.vo.DeptVO;
 
 @Repository
-@Transactional
 public class HibernateDAO {
 	
 	private static final String GET_ALL_STMT = "from DeptVO order by deptno";
@@ -20,7 +19,6 @@ public class HibernateDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	@Transactional(readOnly = true)
 	public List<DeptVO> getAll() {
 		Session session = sessionFactory.getCurrentSession();
 		Query<DeptVO> query = session.createQuery(GET_ALL_STMT, DeptVO.class);

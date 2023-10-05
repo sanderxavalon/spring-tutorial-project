@@ -1,4 +1,4 @@
-package com.tibame.tutorial.config;
+package com.tibame.lab.config;
 
 import java.util.Properties;
 
@@ -36,6 +36,13 @@ public class AppConfig {
 		bean.setPackagesToScan("com.tibame.lab");
 		bean.setHibernateProperties(hibernateProperties());	
 		return bean;
+	}
+	
+	@Bean
+	public HibernateTemplate hibernateTemplate() {
+		HibernateTemplate hibernateTemplate = new HibernateTemplate();
+		hibernateTemplate.setSessionFactory(this.sessionFactory().getObject());
+		return hibernateTemplate;
 	}
 	
 	@Bean

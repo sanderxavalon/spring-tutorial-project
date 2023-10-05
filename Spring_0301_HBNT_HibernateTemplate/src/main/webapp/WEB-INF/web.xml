@@ -10,10 +10,18 @@
 		<param-name>contextClass</param-name>
 		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 	</context-param>
+	<!-- Tutorial -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>com.tibame.tutorial.config.AppConfig</param-value>
 	</context-param>
+	<!-- Lab -->
+	<!-- 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>com.tibame.lab.config.AppConfig</param-value>
+	</context-param>
+	-->
 	<servlet>
 		<servlet-name>Controller</servlet-name>
 		<servlet-class>com.tibame.tutorial.controller.Controller</servlet-class>

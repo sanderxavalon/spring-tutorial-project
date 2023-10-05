@@ -1,4 +1,4 @@
-package com.tibame.tutorial.config;
+package com.tibame.lab.config;
 
 import java.util.Properties;
 
@@ -14,7 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = "com.tibame.lab")
+@ComponentScan(basePackages = "com.tibame.tutorial")
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 public class AppConfig {
@@ -33,7 +33,7 @@ public class AppConfig {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(datasource());
-		bean.setPackagesToScan("com.tibame.lab");
+		bean.setPackagesToScan("com.tibame.tutorial");
 		bean.setHibernateProperties(hibernateProperties());	
 		return bean;
 	}

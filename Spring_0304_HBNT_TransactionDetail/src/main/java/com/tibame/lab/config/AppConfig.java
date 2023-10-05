@@ -1,4 +1,4 @@
-package com.tibame.tutorial.config;
+package com.tibame.lab.config;
 
 import java.util.Properties;
 

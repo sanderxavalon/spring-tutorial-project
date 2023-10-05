@@ -60,6 +60,26 @@
 				<value>com.tibame.tutorial</value>
 			</list>
 		</property>
+		<!-- *hbm.xml -->
+		<!-- 如果你是需要用*hbm.xml的設定的話 -->
+		<!--  
+        <property name="mappingResources"> 
+            <list> 
+                <value>emp2.hbm.xml</value> 
+                <value>dept2.hbm.xml</value> 
+            </list> 
+        </property>
+ 		-->
+		<!-- 如果你是需要用"很多" *hbm.xml的設定的話，一次裝進來 -->
+		<!--  
+	    <property name="mappingLocations">
+	        <list>
+	            <value>classpath:*.xml</value>
+	            <value>/WEB-INF/hibernateMappings</value>
+	        </list>
+	    </property>
+ 		-->
+ 
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>

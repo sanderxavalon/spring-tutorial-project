@@ -1,42 +1,43 @@
 package com.tibame.lab.beans;
 
-import com.tibame.lab.beans.tire.BMWTire;
-import com.tibame.lab.beans.tire.BenzTire;
-
 public class BenzCar {
 	
-	private BenzTire tireA;
-	private BMWTire tireB;
+	private NormalTire tireA;
+	private NormalTire tireB;
 
-	public BenzCar(BenzTire tireA, BMWTire tireB) {
-		System.out.println("This is constructor!");
+	// 這裡有建構子，所以接管之後不一定要@Autowired
+	// 不過下面Setter已經寫好，你可以把建構子刪掉然後貼上@Autowired試試看，會達成一樣的效果喔
+	public BenzCar(NormalTire tireA, NormalTire tireB) {
+		System.out.println("呼叫建構子!");
 		this.tireA = tireA;
 		this.tireB = tireB;
 	}
 
+	// 這個是init方法
 	public void lalalaThisIsInit() {
-		System.out.println("This is Post Constructor method, Init complete");
+		System.out.println("呼叫生命週期Init！");
 		MessageReceiver.sendMessage("Init!");
 	}
 	
+	// 這個是destroy方法
 	public void lalalaThisIsDestroy() {
-		System.out.println("This is Pre-destroy method, Ready for destroy");
+		System.out.println("呼叫生命週期destroy！");
 		MessageReceiver.sendMessage("Destroy!");
 	}
 
-	public BenzTire getTireA() {
+	public NormalTire getTireA() {
 		return tireA;
 	}
-
-	public void setTireA(BenzTire tireA) {
+	
+	public void setTireA(NormalTire tireA) {
 		this.tireA = tireA;
 	}
 
-	public BMWTire getTireB() {
+	public NormalTire getTireB() {
 		return tireB;
 	}
 
-	public void setTireB(BMWTire tireB) {
+	public void setTireB(NormalTire tireB) {
 		this.tireB = tireB;
 	}
 

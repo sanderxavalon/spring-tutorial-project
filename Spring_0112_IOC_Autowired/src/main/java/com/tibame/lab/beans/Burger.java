@@ -1,5 +1,8 @@
 package com.tibame.lab.beans;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import com.tibame.lab.beans.cheese.Cheese;
 
 public class Burger {
@@ -8,13 +11,7 @@ public class Burger {
 	private Cheese cheeseOnBottom;
 	private Lettuce lettuce;
 	private Tomato tomato;
-
-	@Override
-	public String toString() {
-		return "Burger [cheeseOnTop=" + cheeseOnTop + ", cheeseOnBottom=" + cheeseOnBottom + ", lettuce=" + lettuce
-				+ ", tomato=" + tomato + "]";
-	}
-
+	
 	public Cheese getCheeseOnTop() {
 		return cheeseOnTop;
 	}

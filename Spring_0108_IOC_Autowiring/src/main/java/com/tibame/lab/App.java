@@ -11,6 +11,8 @@ public class App {
     
 	public static void main(String[] args) {
 		
+		// 題目說明：
+		// 根據不同的類型用不同的Autowire方式配置，可以參考package並且試著不同方式配置看看
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-lab.xml");
 		
 		var benz = context.getBean(BenzCar.class);

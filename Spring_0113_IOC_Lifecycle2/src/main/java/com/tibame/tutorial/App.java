@@ -12,7 +12,7 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-tutorial.xml");
 		
 	    DefaultSingletonBeanRegistry registry = (DefaultSingletonBeanRegistry) context.getAutowireCapableBeanFactory();
-	    registry.destroySingleton("Car");
+	    registry.destroySingleton("car");
 	    
 	}
 

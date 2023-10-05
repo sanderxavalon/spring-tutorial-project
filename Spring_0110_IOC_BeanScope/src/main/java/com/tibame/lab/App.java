@@ -14,6 +14,7 @@ public class App {
 		// 題目說明：
 		// BenzCar在容器中只需要一個實體
 		// BMWCar在容器中只需要多個實體
+		// 這題題目沒有依賴，所以不需要注入
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-lab.xml");
 		
 		// 這邊用類型抓Bean，不用在意Id沒關係

@@ -6,7 +6,6 @@ public class MessageReceiver {
 	
 	private static ArrayList<String> messages = new ArrayList<String>();
 
-	
 	public static void sendMessage(String message) {
 		messages.add(message);
 	}
@@ -14,12 +13,13 @@ public class MessageReceiver {
 	public static void validate() {
 		System.out.println("Validtion:");
 		if(messages.size() < 2) {
-			throw new RuntimeException("GO FIX YOUR XML!");
+			System.out.println("好像沒有抓到配置喔，在確認一下XML跟Annotation吧！");
+			return;
 		}
 		messages.stream().forEach((x)-> {
 			System.out.println(x);
 		});
-		System.out.println("You make it!");
+		System.out.println("配置成功!");
 	}
 
 

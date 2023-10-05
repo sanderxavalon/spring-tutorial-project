@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 public class Tomato {
 	
+	// 這邊只要注入值就可以了，如果不會的話可以參照tutorial的Engine
 	private Integer size;
 
 	@Override
@@ -12,12 +13,8 @@ public class Tomato {
 		return "Tomato [size=" + size + "]";
 	}
 
+	// 我是getter不要理我
 	public Integer getSize() {
 		return size;
 	}
-
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	
 }

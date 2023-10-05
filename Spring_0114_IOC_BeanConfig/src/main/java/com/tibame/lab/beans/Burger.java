@@ -1,5 +1,6 @@
 package com.tibame.lab.beans;
 
+// 這邊不用@Component，我們不需要接管它，需要到BurgerConfiguration手動new
 public class Burger {
 	
 	private int size;

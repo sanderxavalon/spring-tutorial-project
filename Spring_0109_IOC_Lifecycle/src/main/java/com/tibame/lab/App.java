@@ -11,6 +11,9 @@ public class App {
 	
 	public static void main(String[] args) {
 		
+		// 題目說明：
+		// 複習一下上一節的Autowire
+		// 然後配置Init/destroy method
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-lab.xml");
 		
 		var benzcar = context.getBean(BenzCar.class);

@@ -6,5 +6,7 @@
         http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 	
+	<!-- ID會是在容器中的名字，記得首字小寫，剩餘駝峰式 -->
+	<bean id="normalTire" class="com.tibame.lab.beans.NormalTire" />	
 	
 </beans>

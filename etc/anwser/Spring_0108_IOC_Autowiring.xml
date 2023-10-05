@@ -5,14 +5,15 @@
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
-
-	<bean id="beanA" class="com.tibame.tutorial.byname.BeanA" autowire="byName"/>
-	
-	<bean id="beanB" class="com.tibame.tutorial.contructor.BeanB" autowire="constructor"/>
-	
-	<bean id="beanC" class="com.tibame.tutorial.bytype.BeanC" autowire="byType"/>
 	
 	<!-- ID會是在容器中的名字，記得首字小寫，剩餘駝峰式 -->
-	<bean id="beanD" class="com.tibame.tutorial.beans.BeanD"/>
+	<bean id="normalTire" class="com.tibame.lab.beans.NormalTire" />
+	
+	<bean id="bMWCar" class="com.tibame.lab.byname.BMWCar" autowire="byType"/>
+	
+	<bean id="mazdaCar" class="com.tibame.lab.contructor.MazdaCar" autowire="constructor"/>
+	
+	<bean id="benzCar" class="com.tibame.lab.bytype.BenzCar" autowire="byType"/>
+	
 	
 </beans>

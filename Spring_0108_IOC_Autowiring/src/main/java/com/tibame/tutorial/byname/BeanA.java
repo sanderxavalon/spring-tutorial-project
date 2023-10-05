@@ -1,15 +1,15 @@
-package com.tibame.tutorial.beans;
+package com.tibame.tutorial.byname;
+
+import com.tibame.tutorial.beans.BeanD;
 
 public class BeanA {
 	
+	// 這個會注入成功
 	private BeanD beanD;
 	
+	// 這個會注入失敗
 	private BeanD beanNameIsBlahBlah;
 	
-	public BeanA() {
-		System.out.println("BeanA Init!");
-	}
-
 	public BeanD getBeanD() {
 		return beanD;
 	}

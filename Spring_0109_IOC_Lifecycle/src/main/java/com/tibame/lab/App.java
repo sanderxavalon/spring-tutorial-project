@@ -6,8 +6,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.tibame.lab.beans.BenzCar;
 import com.tibame.lab.beans.MessageReceiver;
-import com.tibame.lab.beans.tire.BMWTire;
-import com.tibame.lab.beans.tire.BenzTire;
 
 public class App {
 	
@@ -16,17 +14,13 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-lab.xml");
 		
 		var benzcar = context.getBean(BenzCar.class);
-		if (!(benzcar.getTireA() instanceof BenzTire)) {
-			System.out.println("GO FIX YOUR XML!");
-			return;
-		}
 		
-		if (!(benzcar.getTireB() instanceof BMWTire)) {
-			System.out.println("GO FIX YOUR XML!");
-			return;
-		}
+		benzcar.getTireA().run();
+		benzcar.getTireB().run();
 		
 	    DefaultSingletonBeanRegistry registry = (DefaultSingletonBeanRegistry) context.getAutowireCapableBeanFactory();
+	    
+	    // 這裡用的是Bean的Id來把Bean銷毀，要注意id有沒有一致喔
 	    registry.destroySingleton("benzCar");
 	    
 	    MessageReceiver.validate();

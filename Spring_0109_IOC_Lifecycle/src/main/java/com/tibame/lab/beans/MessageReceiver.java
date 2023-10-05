@@ -12,9 +12,10 @@ public class MessageReceiver {
 	}
 	
 	public static void validate() {
-		System.out.println("Validtion:");
+		System.out.println("檢查:");
 		if(messages.size() < 2) {
-			throw new RuntimeException("GO FIX YOUR XML!");
+			System.out.println("你的生命週期好像沒有配好喔");
+			return;
 		}
 		messages.stream().forEach((x)-> {
 			System.out.println(x);

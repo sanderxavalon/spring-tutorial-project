@@ -8,7 +8,6 @@
 
 	<!-- ID會是在容器中的名字，記得首字小寫，剩餘駝峰式 -->
 	<!-- 輪胎new一個就好 -->
-	<bean id="normalTire" class="com.tibame.lab.beans.NormalTire" />
-	
-		
+	<bean id="normalTire" class="com.tibame.lab.beans.NormalTire" />	
+	<bean id="benzCar" class="com.tibame.lab.beans.BenzCar" autowire="constructor" init-method="lalalaThisIsInit" destroy-method="lalalaThisIsDestroy"/>
 </beans>

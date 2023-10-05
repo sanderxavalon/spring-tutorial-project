@@ -1,43 +1,45 @@
 package com.tibame.lab.beans;
 
-import com.tibame.lab.beans.tire.BMWTire;
-import com.tibame.lab.beans.tire.BenzTire;
-import com.tibame.lab.beans.tire.Tire;
 
 public class BenzCar {
 	
-	private BenzTire tireA;
-	private BMWTire tireB;
-	
-	public BenzCar(BenzTire tireA, BMWTire tireB) {
-		System.out.println("This is constructor!");
+	private NormalTire tireA;
+	private NormalTire tireB;
+
+	// 這裡有建構子，所以優先用autowire="constructor"
+	// 不過下面Setter已經寫好，所以我們只要補上空的建構子就可以使用ByType/ByName囉
+	public BenzCar(NormalTire tireA, NormalTire tireB) {
+		System.out.println("呼叫建構子!");
 		this.tireA = tireA;
 		this.tireB = tireB;
 	}
 
+	// 這個是init方法
 	public void lalalaThisIsInit() {
-		System.out.println("This is Post Constructor method, Init complete");
+		System.out.println("呼叫生命週期Init！");
+		// 不用管我
 		MessageReceiver.sendMessage("Init!");
 	}
-	
+	// 這個是destroy方法
 	public void lalalaThisIsDestroy() {
-		System.out.println("This is Pre-destroy method, Ready for destroy");
+		System.out.println("呼叫生命週期destroy！");
+		// 不用管我
 		MessageReceiver.sendMessage("Destroy!");
 	}
 
-	public BenzTire getTireA() {
+	public NormalTire getTireA() {
 		return tireA;
 	}
 
-	public void setTireA(BenzTire tireA) {
+	public void setTireA(NormalTire tireA) {
 		this.tireA = tireA;
 	}
 
-	public BMWTire getTireB() {
+	public NormalTire getTireB() {
 		return tireB;
 	}
 
-	public void setTireB(BMWTire tireB) {
+	public void setTireB(NormalTire tireB) {
 		this.tireB = tireB;
 	}
 

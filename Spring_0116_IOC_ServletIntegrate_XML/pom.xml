@@ -6,13 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tibame</groupId>
-	<artifactId>Spring_0115_IOC_ServletIntegrate</artifactId>
+	<artifactId>Spring_0116_IOC_ServletIntegrate_XML</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
-	<name>Spring_0115_IOC_ServletIntegrate Maven Webapp</name>
-	<!-- FIXME change it to the project's website -->
-	<url>http://www.example.com</url>
+	<name>Spring_0116_IOC_ServletIntegrate_XML Maven Webapp</name>
 
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>
@@ -61,7 +59,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Spring_0115_IOC_ServletIntegrate</finalName>
+		<finalName>Spring_0116_IOC_ServletIntegrate_XML</finalName>
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven
 			defaults (may be moved to parent pom) -->
 			<plugins>

@@ -1,0 +1,31 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+
+	<!-- 配置監聽器，Spring容器監聽Servlet起來後會將自己初始化 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 指定Spring XML配置的位置，如果是classpath底下的話則需要再前面著明 -->
+	<context-param> 
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring-tutorial.xml</param-value> 
+	</context-param>
+	
+	<!-- 如果你的Spring XML配置放在WEB-INF底下的話，則需要寫成這樣
+	<context-param> 
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-tutorial.xml</param-value> 
+	</context-param>
+ 	-->
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>com.tibame.tutorial.HelloWorld</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/helloworld</url-pattern>
+	</servlet-mapping>
+</web-app>

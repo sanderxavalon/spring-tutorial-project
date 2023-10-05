@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tibame</groupId>
-	<artifactId>Spring_0303_HBNT_TransactionManager</artifactId>
+	<artifactId>Spring_0303_HBNT_XMLSetting</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
-	<name>Spring_0303_HBNT_TransactionManager Maven Webapp</name>
+	<name>Spring_0303_HBNT_XMLSetting Maven Webapp</name>
 
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>

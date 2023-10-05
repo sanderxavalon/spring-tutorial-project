@@ -1,4 +1,4 @@
-package com.tibame.tutorial.vo;
+package com.tibame.lab.vo;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -22,8 +22,6 @@ public class EmpVO {
 	@Column
 	private String job;
 	@Column
-	private Date hiredate;
-	@Column
 	private BigDecimal sal;
 	@Column
 	private BigDecimal comm;
@@ -46,12 +44,6 @@ public class EmpVO {
 	public void setJob(String job) {
 		this.job = job;
 	}
-	public Date getHiredate() {
-		return hiredate;
-	}
-	public void setHiredate(Date hiredate) {
-		this.hiredate = hiredate;
-	}
 	public BigDecimal getSal() {
 		return sal;
 	}
@@ -63,11 +55,6 @@ public class EmpVO {
 	}
 	public void setComm(BigDecimal comm) {
 		this.comm = comm;
-	}
-	@Override
-	public String toString() {
-		return "EmpVO [empno=" + empno + ", ename=" + ename + ", job=" + job + ", hiredate=" + hiredate + ", sal=" + sal
-				+ ", comm=" + comm + "]";
 	}
 	
 }

@@ -15,6 +15,10 @@ import com.tibame.lab.beans.car.Car;
 
 public class AOPLab extends HttpServlet {
 
+	// 題目說明:
+	// 接下來我們要自己用XML配置AOP功能
+	// Benz, Mazda, BMW都有依樣的方法，所以AOP Pointcut只要對應攔截就可以了
+	// 注意web.xml的配置需要提前更換喔
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -1,5 +1,8 @@
 package com.tibame.tutorial.beans;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BeanA implements NormalBean {
 
 	public void speakBeanName() {

@@ -24,22 +24,30 @@ public class Controller extends HttpServlet {
 		PrintWriter writer = resp.getWriter();
 
 		var action = req.getParameter("action");
-		if("save".equals(action)) {
-			dao.save();
+		if("saveTimeOut".equals(action)) {
+			dao.saveTimeOut();
 			writer.write(new Gson().toJson("OK"));
 		}
-		else if ("update".equals(action)) {
-			dao.update();
+		else if ("noReadOnly".equals(action)) {
+			dao.getAllNoReadOnly();
 			writer.write(new Gson().toJson("OK"));
 		}
-		else if ("delete".equals(action)) {
-			dao.delete();
+		else if ("readOnly".equals(action)) {
+			dao.getAll();
 			writer.write(new Gson().toJson("OK"));
 		}
-		else if ("savefail".equals(action)) {
-			dao.saveFail();
+		else if ("saveWithRuntimeException".equals(action)) {
+			dao.saveWithRuntimeException();
 			writer.write(new Gson().toJson("OK"));
-		} 
+		}
+		else if ("saveNoRollBack".equals(action)) {
+			dao.saveNoRollBack();
+			writer.write(new Gson().toJson("OK"));
+		}
+		else if ("saveRollBackFor".equals(action)) {
+			dao.saveRollBackFor();
+			writer.write(new Gson().toJson("OK"));
+		}
 		else {
 			writer.write(new Gson().toJson(dao.getAll()));
 		}

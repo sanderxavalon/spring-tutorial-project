@@ -13,6 +13,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.google.gson.Gson;
 import com.tibame.tutorial.dao.HibernateDAO;
+import com.tibame.tutorial.dao.HibernateService;
 
 public class Controller extends HttpServlet {
 	
@@ -20,6 +21,7 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		HibernateDAO dao = context.getBean(HibernateDAO.class);
+		HibernateService service = context.getBean(HibernateService.class);
 		resp.setContentType("application/json; charset=UTF-8");
 		PrintWriter writer = resp.getWriter();
 
@@ -46,6 +48,10 @@ public class Controller extends HttpServlet {
 		}
 		else if ("saveRollBackFor".equals(action)) {
 			dao.saveRollBackFor();
+			writer.write(new Gson().toJson("OK"));
+		}
+		else if ("saveAll".equals(action)) {
+			service.saveAll();
 			writer.write(new Gson().toJson("OK"));
 		}
 		else {

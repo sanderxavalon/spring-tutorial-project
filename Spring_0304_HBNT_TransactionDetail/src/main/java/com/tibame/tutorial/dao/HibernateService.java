@@ -1,0 +1,37 @@
+package com.tibame.tutorial.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tibame.tutorial.vo.DeptVO;
+
+@Service
+public class HibernateService {
+
+
+	@Autowired
+	HibernateDAO hibernateDAO;
+	
+	public void saveAll() {
+		
+		DeptVO vo = new DeptVO();
+		vo.setDeptno(10);
+		vo.setDname("行政部");
+		vo.setLoc("新北三重");
+		
+		DeptVO vo2 = new DeptVO();
+		vo2.setDeptno(11);
+		vo2.setDname("庶務部");
+		vo2.setLoc("新北三重");
+		
+		DeptVO vo3 = new DeptVO();
+		vo3.setDeptno(1);
+		vo3.setDname("隨便啦");
+		vo3.setLoc("新北三重");
+		
+		hibernateDAO.saveA(vo);
+		hibernateDAO.saveB(vo2);
+		hibernateDAO.saveB(vo3);
+	}
+
+}

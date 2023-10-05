@@ -11,7 +11,7 @@ public class BeanB {
 		this.beanD = beanD;
 	}
 
-	// Getter
+	// 我是getter，不用理我
 	public BeanD getBeanD() {
 		return beanD;
 	}

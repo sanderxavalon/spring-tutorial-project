@@ -3,7 +3,7 @@ package com.tibame.lab.setter;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.tibame.lab.constructor.beans.Burger;
+import com.tibame.lab.setter.beans.Burger;
 
 public class App {
     

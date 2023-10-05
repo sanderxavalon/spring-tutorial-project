@@ -22,7 +22,7 @@ public class HibernateDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	@Transactional(readOnly = true)
+	@Transactional(readOnly = true, isolation = Isolation.READ_UNCOMMITTED)
 	public List<DeptVO> getAll() {
 		Session session = sessionFactory.getCurrentSession();
 		Query<DeptVO> query = session.createQuery(GET_ALL_STMT, DeptVO.class);
@@ -30,6 +30,7 @@ public class HibernateDAO {
 		return list;
 	}
 	
+	@Transactional(readOnly = true, isolation = Isolation.READ_UNCOMMITTED)
 	public void save() {
 		DeptVO vo = new DeptVO();
 		vo.setDeptno(5);

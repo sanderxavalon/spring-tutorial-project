@@ -14,7 +14,7 @@ public class App {
 		
 		thread.run();
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring-tutorial.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-lab.xml");
 		
 		Thread.sleep(3000);
 		

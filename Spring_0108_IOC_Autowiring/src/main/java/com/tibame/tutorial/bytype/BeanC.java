@@ -14,7 +14,5 @@ public class BeanC {
 	public void setBeanD(BeanD beanD) {
 		this.beanD = beanD;
 	}
-	
-	
 
 }

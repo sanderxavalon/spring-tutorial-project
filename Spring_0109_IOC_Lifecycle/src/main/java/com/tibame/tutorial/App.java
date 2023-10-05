@@ -11,6 +11,8 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-tutorial.xml");
 		
 	    DefaultSingletonBeanRegistry registry = (DefaultSingletonBeanRegistry) context.getAutowireCapableBeanFactory();
+	    
+	    // 呼叫銷毀方法
 	    registry.destroySingleton("car");
 		
 	}

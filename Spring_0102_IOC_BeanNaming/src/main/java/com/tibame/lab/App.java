@@ -15,6 +15,7 @@ public class App {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-lab.xml");
 		
+		// 要注意BeanID喔
 		Object humburger = context.getBean("hambaga");
 		
 		if (humburger instanceof Hamburger) {
@@ -27,6 +28,7 @@ public class App {
 			((FrenchFry) frenchFry).callFrenchFry();
 		}
 		
+		// 要注意這個Bean需要第二個名字
 		FrenchFry frenchFryByName = (FrenchFry) context.getBean("myfavorite");
 		
 		if (frenchFryByName  instanceof FrenchFry) {

@@ -1,12 +1,10 @@
 package com.tibame.lab.setter.beans.cheese;
 
-public class CheeseOnTop extends Cheese {
+public class CottageCheese extends Cheese {
 
 	@Override
 	public String toString() {
-		return "CheeseOnTop [type=" + type + "]";
+		return "Cottage";
 	}
-
 	
-
 }

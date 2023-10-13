@@ -4,7 +4,7 @@ public class BMWTire extends Tire {
 
 	@Override
 	public String toString() {
-		return "BMWTire [size=" + size + "]";
+		return "BMWTire";
 	}
 	
 }

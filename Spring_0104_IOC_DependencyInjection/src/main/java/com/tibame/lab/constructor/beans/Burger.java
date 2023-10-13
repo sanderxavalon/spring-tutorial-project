@@ -1,15 +1,16 @@
 package com.tibame.lab.constructor.beans;
 
+import com.tibame.lab.constructor.beans.cheese.CheddarCheese;
 import com.tibame.lab.constructor.beans.cheese.Cheese;
 
 public class Burger {
 	
-	private Cheese cheeseOnTop;
+	private CheddarCheese cheeseOnTop;
 	private Cheese cheeseOnBottom;
 	private Lettuce lettuce;
 	private Tomato tomato;
 	
-	public Burger(Cheese cheeseOnTop, Cheese cheeseOnBottom, Lettuce lettuce, Tomato tomato) {
+	public Burger(CheddarCheese cheeseOnTop, Cheese cheeseOnBottom, Lettuce lettuce, Tomato tomato) {
 		this.cheeseOnTop = cheeseOnTop;
 		this.cheeseOnBottom = cheeseOnBottom;
 		this.lettuce = lettuce;
@@ -22,7 +23,7 @@ public class Burger {
 				+ ", tomato=" + tomato + "]";
 	}
 
-	public Cheese getCheeseOnTop() {
+	public CheddarCheese getCheeseOnTop() {
 		return cheeseOnTop;
 	}
 

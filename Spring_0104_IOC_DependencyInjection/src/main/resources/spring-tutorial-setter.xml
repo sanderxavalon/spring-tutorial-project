@@ -14,13 +14,9 @@
        	<property name="lifeYear" value="5" />
     </bean>
     
-    <bean id="tireA" class="com.tibame.tutorial.setter.beans.tire.BenzTire">
-		<property name="size" value="30" />
-	</bean>
+    <bean id="tireA" class="com.tibame.tutorial.setter.beans.tire.BenzTire" />
 	
-	<bean id="tireB" class="com.tibame.tutorial.setter.beans.tire.BMWTire">
-		<property name="size" value="40" />
-	</bean>
+	<bean id="tireB" class="com.tibame.tutorial.setter.beans.tire.BMWTire" />
 
 	<bean id="car" class="com.tibame.tutorial.setter.beans.Car">
 		<property name="tireA" ref="tireA" />

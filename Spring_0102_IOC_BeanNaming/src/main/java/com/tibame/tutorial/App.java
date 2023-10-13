@@ -5,7 +5,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.tibame.tutorial.beans.BeanA;
 import com.tibame.tutorial.beans.BeanB;
-import com.tibame.tutorial.beans.BeanC;
 
 public class App {
     
@@ -25,9 +24,6 @@ public class App {
 		if (b instanceof BeanB) {
 			((BeanB) b).callBeanb();
 		}
-		
-		BeanC c = (BeanC) context.getBean("beanC");
-		c.callBeanC();
 		
 	}
 }

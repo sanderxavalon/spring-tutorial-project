@@ -8,6 +8,9 @@ import com.tibame.lab.beans.Hamburger;
 
 public class App {
 	
+	// 題目說明：
+	// 依照底下的要求來對Bean進行配置
+	// 記得要注意看FrenchFry有兩個if條件喔
 	public static void main(String[] args) {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-lab.xml");

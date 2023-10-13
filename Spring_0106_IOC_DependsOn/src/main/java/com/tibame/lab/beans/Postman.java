@@ -12,9 +12,9 @@ public class Postman {
 	
 	public static void validate() {
 		if (POST_OFFICE.get(0).equals("BeanA")) {
-			System.out.println("GO FIX YOUR XML!");
+			System.out.println("第一個Bean不是BeanA，再試試看吧﹗");
 		} else {
-			System.out.println("Great Job!");			
+			System.out.println("配置成功！");			
 		}
 
 	}

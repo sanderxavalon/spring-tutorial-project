@@ -6,6 +6,7 @@
         http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- Depends-on也會造成循環依賴喔，請參考下面的範例 -->
 	<bean id="beanA" class="com.tibame.tutorial.circular.BeanA" >
 		<constructor-arg ref="beanC"/>
 	</bean>

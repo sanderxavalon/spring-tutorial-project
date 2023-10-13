@@ -2,14 +2,28 @@ package com.tibame.lab.beans;
 
 public class NotBoringBean {
 	
+	private static NotBoringBean notBoringBean = new NotBoringBean();
+	
+	// 不用理我
 	private Checker checker;
 
+	// 我好像不是建構子耶
 	public static NotBoringBean createInstance() {
-		var bean = new NotBoringBean();
-		bean.setChecker(new Checker());
-		return bean;
+		notBoringBean.setChecker(new Checker());
+		return notBoringBean;
 	}
-
+	
+	// 檢核的地方，不用理我
+	public void checkerSpeak() {
+		try {
+			this.checker.validate();			
+		} catch (Exception e) {
+			System.out.println("配置錯誤囉！再檢查一下吧！");
+		}
+		
+	}
+	
+	// 我只是一般的Getter/Setter
 	public Checker getChecker() {
 		return checker;
 	}
@@ -18,21 +32,11 @@ public class NotBoringBean {
 		this.checker = checker;
 	}
 	
-	public void checkerSpeak() {
-		try {
-			this.checker.validate();			
-		} catch (Exception e) {
-			System.out.println("GO FIX YOUR XML!");
-		}
-		
-	}
-	
-	
 }
 
-
+// 不用理我
 class Checker {
 	public void validate() {
-		System.out.println("You made it!");
+		System.out.println("配置成功囉！");
 	}
 }

@@ -9,7 +9,7 @@ public class BeanB {
 	}
 	
 	public void callBeanb() {
-		System.out.println("I'm Bean B");
+		System.out.println("我是Bean B");
 	}
 
 }

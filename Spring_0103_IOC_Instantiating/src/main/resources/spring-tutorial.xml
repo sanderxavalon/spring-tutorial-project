@@ -8,6 +8,7 @@
 
 	<bean id="beanA" class="com.tibame.tutorial.beans.BeanA" />
 
+	<!-- 這個適用工廠方法進行實例化 -->
 	<bean id="beanB"  class="com.tibame.tutorial.beans.BeanB" factory-method="createBeanBInstance"/>
 	
 </beans>

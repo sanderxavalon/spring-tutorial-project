@@ -8,8 +8,11 @@
 
 	<bean id="beanA" class="com.tibame.tutorial.beans.BeanA" />
 
+
 	<bean id="beanB" name="ThisBeanB" class="com.tibame.tutorial.beans.BeanB" />
-	
+
+	 	
+	<!-- BeanID必須是唯一的，要不然會在Spring IOC啟動時報出錯誤 -->
 	<!-- 
 	<bean id="beanA" class="com.tibame.tutorial.beans.BeanB" />
 	 -->

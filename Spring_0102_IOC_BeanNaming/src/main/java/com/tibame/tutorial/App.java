@@ -18,12 +18,17 @@ public class App {
 			((BeanA) a).callBeanA();
 		}
 		
-//		BeanB b = (BeanB) context.getBean("ThisBeanB");
 		BeanB b = (BeanB) context.getBean("beanB");
 			
 		if (b instanceof BeanB) {
 			((BeanB) b).callBeanb();
 		}
+
+		// 用別名也是可以的喔
+//		BeanB b2 = (BeanB) context.getBean("ThisBeanB");
+//		if (b2 instanceof BeanB) {
+//			((BeanB) b).callBeanb();
+//		}
 		
 	}
 }

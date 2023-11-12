@@ -25,9 +25,9 @@
 			<aop:pointcut id="around" expression="execution(* com.tibame.tutorial.beans.*.*())" />
 			
 			<aop:before pointcut-ref="before" method="jointpointBefore" />
-	        <aop:after-returning pointcut-ref="after" method="jointpointAfterReturn" returning="retVal"/>
-	        <aop:after-throwing pointcut-ref="afterReturn" method="jointpointAfterThrow" throwing="exception"/>
-	        <aop:after pointcut-ref="afterThrow" method="jointpointAfterFinally"/>	
+	        <aop:after-returning pointcut-ref="afterReturn" method="jointpointAfterReturn" returning="retVal"/>
+	        <aop:after-throwing pointcut-ref="afterThrow" method="jointpointAfterThrow" throwing="exception"/>
+	        <aop:after pointcut-ref="after" method="jointpointAfterFinally"/>	
     	    <aop:around pointcut-ref="around" method="jointpointAround"/>
 		</aop:aspect>
 	</aop:config>

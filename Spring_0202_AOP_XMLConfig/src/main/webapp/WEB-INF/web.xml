@@ -26,7 +26,7 @@
 		<param-value>classpath:spring-lab.xml</param-value> 
 	</context-param>
 	<servlet>
-		<servlet-name>AOPConfig</servlet-name>
+		<servlet-name>AOPLab</servlet-name>
 		<servlet-class>com.tibame.lab.AOPLab</servlet-class>
 	</servlet>
 	<servlet-mapping>

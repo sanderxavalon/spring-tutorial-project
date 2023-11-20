@@ -19,29 +19,33 @@ public class HelloWorld extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		var bean = (NormalBean) ctx.getBean(request.getParameter("bean"));
 
 		switch (request.getParameter("action")) {
 			case "speak": {
 				bean.speakBeanName();
+				out.write("呼叫Speak，請看Console");
 				break;
 			}
 			case "bye": {
 				bean.byebye();
+				out.write("呼叫bye，請看Console");
 				break;
 			}
 			case "returnname": {
 				bean.returnBeanName();
+				out.write("呼叫returnname，請看Console");
 				break;
 			}
 			case "throwerror": {
 				bean.throwError();
+				out.write("呼叫throwerror，請看Console");
 				break;				
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + request.getParameter("action"));
 		}
-		PrintWriter out = response.getWriter();
-		out.write("OK");
 	}
 }

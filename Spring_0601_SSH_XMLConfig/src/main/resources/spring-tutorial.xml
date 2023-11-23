@@ -17,25 +17,6 @@
 	<context:component-scan base-package="com.tibame.tutorial" />
 
 
-
-	<tx:advice id="txAdvice"
-		transaction-manager="transactionManager">
-		<!-- 詳細設定 -->
-		<tx:attributes>
-			<!-- 所有Get開頭的方法都只是ReadOnly -->
-			<tx:method name="get*" read-only="true" />
-			<!-- 其他方法都照預設 -->
-			<tx:method name="*" />
-		</tx:attributes>
-	</tx:advice>
-
-	<!-- 下面設定與之前AOP相同 -->
-	<aop:config>
-		<aop:pointcut id="pointcut" expression="execution(* com.tibame.tutorial..*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
-	</aop:config>
-
-
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<!-- 連線驅動程式 -->
@@ -61,25 +42,6 @@
 				<value>com.tibame.tutorial</value>
 			</list>
 		</property>
-		<!-- *hbm.xml -->
-		<!-- 如果你是需要用*hbm.xml的設定的話 -->
-		<!--  
-        <property name="mappingResources"> 
-            <list> 
-                <value>emp2.hbm.xml</value> 
-                <value>dept2.hbm.xml</value> 
-            </list> 
-        </property>
- 		-->
-		<!-- 如果你是需要用"很多" *hbm.xml的設定的話，一次裝進來 -->
-		<!--  
-	    <property name="mappingLocations">
-	        <list>
-	            <value>classpath:*.xml</value>
-	            <value>/WEB-INF/hibernateMappings</value>
-	        </list>
-	    </property>
- 		-->
  
 		<property name="hibernateProperties">
 			<props>
@@ -93,5 +55,5 @@
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 </beans>

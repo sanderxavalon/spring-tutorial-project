@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.tibame.tutorial" />
+	<context:component-scan base-package="com.tibame" />
 
 
 	<bean id="dataSource"
@@ -42,7 +42,6 @@
 				<value>com.tibame.tutorial</value>
 			</list>
 		</property>
- 
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>

@@ -1,26 +1,22 @@
 package com.tibame.tutorial;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tibame.tutorial.beans.Car;
 
-public class HelloWorld extends HttpServlet {
+@Controller
+public class HelloWorld {
+
+	@Autowired
+	Car car;
 	
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
-		Car car = ctx.getBean(Car.class);
-		System.out.println(car.toString());
-		PrintWriter out = response.getWriter();
-		out.write(car.toString());
+	@RequestMapping(method = RequestMethod.GET, path = "/helloworld")
+	public ModelAndView helloworld() {
+		return new ModelAndView("model", "Car", car);
 	}
+	
 }

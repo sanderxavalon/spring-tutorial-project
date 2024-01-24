@@ -1,4 +1,4 @@
-package com.tibame.tutorial;
+package com.tibame.tutorial.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,12 +13,23 @@ import com.tibame.tutorial.beans.Car;
 @Controller
 public class HelloWorld {
 
+	public HelloWorld(Car car) {
+		System.out.println(this.toString());
+	}
+	
+	@Override
+	public String toString() {
+		return "HelloWorld [hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+
+
+
 	@Autowired
 	Car car;
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/helloworld")
 	public ModelAndView helloworld() {
-		return new ModelAndView("model", "Car", car);
+		return new ModelAndView("helloworld", "Car", car);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/session")

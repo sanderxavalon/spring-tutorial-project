@@ -2,6 +2,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
 
 	<!-- 配置監聽器，Spring容器監聽Servlet起來後會將自己初始化 -->
 	<listener>

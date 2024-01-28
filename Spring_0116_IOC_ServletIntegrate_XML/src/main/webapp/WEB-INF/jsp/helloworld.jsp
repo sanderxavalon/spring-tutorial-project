@@ -11,11 +11,8 @@
 
 <%= pageContext.getRequest().getAttribute("Car").toString() %>
 <br/>
-${requestScope.Car.engine}
+${requestScope.Car}
 <br/>
-${empty sessionScope.Car.engine}
-<br/>
-${sessionScope.Car.engine}
 
 </body>
 </html>

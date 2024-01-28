@@ -1,7 +1,5 @@
 package com.tibame.tutorial.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +17,6 @@ public class HelloWorld {
 	@RequestMapping(method = RequestMethod.GET, path = "/helloworld")
 	public ModelAndView helloworld() {
 		return new ModelAndView("helloworld", "Car", car);
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, path = "/session")
-	public String sessionSetup(HttpSession session) {
-		session.setAttribute("Car", car);
-		return "setSession";
 	}
 	
 }

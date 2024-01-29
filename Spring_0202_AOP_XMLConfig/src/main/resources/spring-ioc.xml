@@ -10,14 +10,8 @@
 
 	<context:component-scan base-package="com.tibame.tutorial"/>
 	
-	<!-- 已經註解@Component的Bean:
-	<bean id="someBean" class="com.tibame.tutorial.aop.SomeBean" />
-	<bean id="beanA" class="com.tibame.tutorial.beans.BeanA" />
-	<bean id="beanB" class="com.tibame.tutorial.beans.BeanB" />
-	<bean id="beanC" class="com.tibame.tutorial.beans.BeanC" />
-	 -->
     <aop:config>
-		<aop:aspect id="aspect" ref="someBean">
+		<aop:aspect id="aspect" ref="jointPoint">
 			<aop:pointcut id="before" expression="execution(* com.tibame.tutorial.beans.*.speak*())" />
 			<aop:pointcut id="after" expression="execution(* com.tibame.tutorial.beans.*.bye*())" />
 			<aop:pointcut id="afterReturn" expression="execution(* com.tibame.tutorial.beans.*.return*())" />

@@ -1,11 +1,9 @@
-package com.tibame.tutorial.aop;
+package com.tibame.lab.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.springframework.stereotype.Component;
 
-@Component
-public class SomeBean {
-	
+public class LabJointPoint {
+
     public void jointpointBefore() {
         System.out.println("Before");
     }
@@ -15,11 +13,12 @@ public class SomeBean {
     }
     
     public void jointpointAfterReturn(String retVal) {
-        System.out.println(retVal);
+        System.out.println("jointpointAfterReturn: " + retVal);
     }
     
-    public void jointpointAfterThrow() {
-        System.out.println("After Throw");
+    public void jointpointAfterThrow(Exception ex) {
+        System.out.println("AOP After Throw");
+        System.out.println(ex.toString());
     }
     
     public Object jointpointAround(ProceedingJoinPoint pjp) throws Throwable {
@@ -29,4 +28,5 @@ public class SomeBean {
         System.out.println("耗時:" + (System.currentTimeMillis() - start) + "ms");
         return retVal;
     }
+
 }

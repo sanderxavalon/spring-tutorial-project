@@ -1,4 +1,5 @@
-<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,10 +19,8 @@
     </style>
   </head>
   <body>
-	<a href="${pageContext.request.contextPath}/helloworld/speak">Speak</a><br>
-	<a href="${pageContext.request.contextPath}/helloworld/bye">Bye</a><br>
-	<a href="${pageContext.request.contextPath}/helloworld/returnname">Return Name</a><br>
-	<a href="${pageContext.request.contextPath}/helloworld/throwerror">會報錯</a><br>
+  	<%= pageContext.getRequest().getAttribute("message").toString() %>
+  	<br>
+  	<a href="${pageContext.request.contextPath}/index.jsp">回到首頁</a>
   </body>
-
 </html>

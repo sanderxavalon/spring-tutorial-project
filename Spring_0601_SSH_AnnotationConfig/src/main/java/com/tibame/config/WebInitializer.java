@@ -6,13 +6,13 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[]{ SpringConfig.class };
+		return new Class<?>[]{ SpringIOCConfig.class };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class<?>[]{
-				WebConfig.class
+				SpringMVCConfig.class
 		};
 	}
 

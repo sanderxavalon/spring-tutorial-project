@@ -12,6 +12,6 @@ import org.springframework.stereotype.Controller;
 		@ComponentScan.Filter(type = FilterType.REGEX, pattern = "com.tibame.tutorial.config.SpringmvcConfig" )
 })
 @EnableAspectJAutoProxy
-public class AppConfig {
+public class SpringiocConfig {
 
 }

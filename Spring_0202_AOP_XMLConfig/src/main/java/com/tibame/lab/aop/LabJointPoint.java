@@ -3,7 +3,6 @@ package com.tibame.lab.aop;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
-@Component
 public class LabJointPoint {
 
     public void labBefore() {

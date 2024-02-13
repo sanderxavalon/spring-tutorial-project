@@ -2,7 +2,7 @@ package com.tibame.lab.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
-public class AOPConfig {
+public class LabJointPoint {
 
     public void jointpointBefore() {
         System.out.println("Before");

@@ -26,6 +26,13 @@ public class JointPoint {
         long start = System.currentTimeMillis();
         System.out.println("Around啟動!!");
         Object retVal = pjp.proceed();
+//      You can intercept the exception.
+//      Object retVal = null;
+//      try {
+//      	retVal = pjp.proceed();
+//      } catch (Exception e) {
+//			System.out.println("Catch Error:" + e.toString());
+//		}
         System.out.println("耗時:" + (System.currentTimeMillis() - start) + "ms");
         return retVal;
     }

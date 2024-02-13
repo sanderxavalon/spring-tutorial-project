@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class SomeBean {
+public class JointPoint {
 	
     @Before("execution(* com.tibame.tutorial.beans.*.speak*())")
     public void jointpointBefore() {

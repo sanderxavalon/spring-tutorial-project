@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class AOPConfig {
+public class JointPoint {
 
     @After("execution(* com.tibame.tutorial.beans.*.*())")
     public void jointpointAfterFinally() {

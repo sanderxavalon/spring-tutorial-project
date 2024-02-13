@@ -19,7 +19,7 @@
 	<!-- 這裡要跟Spring說@Configuration的設定位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>com.tibame.tutorial.config.AppConfig</param-value>
+		<param-value>com.tibame.tutorial.config.SpringiocConfig</param-value>
 	</context-param>
 
 	<servlet>

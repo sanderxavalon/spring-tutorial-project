@@ -10,5 +10,5 @@ import org.springframework.stereotype.Controller;
 		@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Controller.class),
 		@ComponentScan.Filter(type = FilterType.REGEX, pattern = "com.tibame.tutorial.config.SpringmvcConfig" )
 })
-public class AppConfig {
+public class SpringiocConfig {
 }

@@ -14,13 +14,13 @@
 	<!-- 指定Spring XML配置的位置，如果是classpath底下的話則需要再前面著明 -->
 	<context-param> 
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-tutorial.xml</param-value> 
+		<param-value>classpath:spring-ioc.xml</param-value> 
 	</context-param>
 	
 	<!-- 如果你的Spring XML配置放在WEB-INF底下的話，則需要寫成這樣
 	<context-param> 
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-tutorial.xml</param-value> 
+		<param-value>/WEB-INF/spring-ioc.xml</param-value> 
 	</context-param>
  	-->
 	<servlet>

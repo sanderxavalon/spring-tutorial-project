@@ -11,13 +11,12 @@
 	<context:component-scan base-package="com.tibame.tutorial"/>
 	
     <aop:config>
-		<aop:aspect id="aspect" ref="jointPoint">
+		<aop:aspect id="tutorialAspect" ref="jointPoint">
 			<aop:pointcut id="before" expression="execution(* com.tibame.tutorial.beans.*.speak*())" />
 			<aop:pointcut id="after" expression="execution(* com.tibame.tutorial.beans.*.bye*())" />
 			<aop:pointcut id="afterReturn" expression="execution(* com.tibame.tutorial.beans.*.return*())" />
 			<aop:pointcut id="afterThrow" expression="execution(* com.tibame.tutorial.beans.*.throw*())" />
 			<aop:pointcut id="around" expression="execution(* com.tibame.tutorial.beans.*.*())" />
-			
 			<aop:before pointcut-ref="before" method="jointpointBefore" />
 	        <aop:after-returning pointcut-ref="afterReturn" method="jointpointAfterReturn" returning="retVal"/>
 	        <aop:after-throwing pointcut-ref="afterThrow" method="jointpointAfterThrow" throwing="exception"/>
@@ -25,5 +24,4 @@
     	    <aop:around pointcut-ref="around" method="jointpointAround"/>
 		</aop:aspect>
 	</aop:config>
-	
 </beans>

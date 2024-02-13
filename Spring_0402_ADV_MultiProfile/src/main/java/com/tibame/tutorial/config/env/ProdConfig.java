@@ -1,9 +1,10 @@
 package com.tibame.tutorial.config.env;
 
-import javax.annotation.PostConstruct;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+
+import jakarta.annotation.PostConstruct;
 
 @Configuration
 @Profile("prod")

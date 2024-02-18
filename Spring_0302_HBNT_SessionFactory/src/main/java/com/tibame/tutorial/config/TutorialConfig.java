@@ -2,22 +2,19 @@ package com.tibame.tutorial.config;
 
 import java.util.Properties;
 
-import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = "com.tibame.lab")
-@EnableAspectJAutoProxy
+@ComponentScan(basePackages = "com.tibame.tutorial")
 @EnableTransactionManagement
-public class AppConfig {
+public class TutorialConfig {
 	
 	@Bean
 	public DriverManagerDataSource datasource() {
@@ -33,7 +30,7 @@ public class AppConfig {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(datasource());
-		bean.setPackagesToScan("com.tibame.lab");
+		bean.setPackagesToScan("com.tibame.tutorial");
 		bean.setHibernateProperties(hibernateProperties());	
 		return bean;
 	}

@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "emp2")
-public class EmpVO {
+@Table(name = "EMP")
+public class Emp {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -36,7 +36,26 @@ public class Scheduler {
 	    });
 	}
 	
-	@Scheduled(fixedDelay = 2, timeUnit = TimeUnit.SECONDS)
+	@Scheduled(cron = "*/5 * * * * *")
+	public void cron() throws InterruptedException {
+		if(index >= list.size()) {
+			cancelScheduleTask("cron");
+		    return;
+		};
+		var x = list.get(index);
+		log.info("[cron] 執行" + x + "秒");
+		for (int i = 1; i <= x; i++) {
+			log.info(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		index++;
+	}
+	
+	@Scheduled(fixedDelay = 5, timeUnit = TimeUnit.SECONDS)
 	public void fixedDelay() throws InterruptedException {
 		if(index >= list.size()) {
 			cancelScheduleTask("fixedDelay");
@@ -57,7 +76,7 @@ public class Scheduler {
 	
 
 
-	@Scheduled(fixedRate = 2, timeUnit = TimeUnit.SECONDS)
+	@Scheduled(fixedRate = 5, timeUnit = TimeUnit.SECONDS)
 	public void fixedRate() throws InterruptedException {
 		if(index >= list.size()) {
 			cancelScheduleTask("fixedRate");

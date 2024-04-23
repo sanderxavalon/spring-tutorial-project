@@ -8,9 +8,4 @@
 
 	<bean id="beanA" class="com.tibame.tutorial.beans.BeanA" lazy-init="true"/>
 	
-	<bean id="beanB" class="com.tibame.tutorial.beans.circular.BeanB"/>
-	
-	<bean id="beanC" class="com.tibame.tutorial.beans.circular.BeanC" lazy-init="true"/>
-	
-	
 </beans>

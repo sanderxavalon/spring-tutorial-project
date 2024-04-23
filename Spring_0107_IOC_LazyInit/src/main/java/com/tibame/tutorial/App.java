@@ -4,8 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.tibame.tutorial.beans.BeanA;
-import com.tibame.tutorial.beans.circular.BeanB;
-import com.tibame.tutorial.beans.circular.BeanC;
 
 public class App {
     

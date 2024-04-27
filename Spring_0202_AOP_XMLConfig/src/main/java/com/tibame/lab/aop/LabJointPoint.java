@@ -3,10 +3,11 @@ package com.tibame.lab.aop;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
+@Component
 public class LabJointPoint {
 
     public void labBefore() {
-        System.out.println("Before2e");
+        System.out.println("Before");
     }
     
     public void labAfterFinally() {

@@ -18,7 +18,7 @@ public class JointPoint {
         System.out.println(retVal);
     }
     
-    public void jointpointAfterThrow() {
+    public void jointpointAfterThrow(Exception exception) {
         System.out.println("After Throw");
     }
     

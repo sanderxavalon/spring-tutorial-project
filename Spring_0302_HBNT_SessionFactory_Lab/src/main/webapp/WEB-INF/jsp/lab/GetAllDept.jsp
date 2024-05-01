@@ -14,11 +14,11 @@
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-md-4">
-	                    <h1>Tutorial</h1>
+	                    <h1>Lab</h1>
 	                </div>
    	                <div class="col-md-4 offset-md-4">
    	                	<span class="align-middle">
-	                    	<a href="<%=application.getContextPath()%>/dept/insertPage" class="btn btn-primary" role="button">新增部門</a>
+	                    	<a href="<%=application.getContextPath()%>/emp/insertPage" class="btn btn-primary" role="button">新增員工</a>
 	                    </span>
 	                </div>
 	            </div>
@@ -26,24 +26,26 @@
                     <table class="table table-striped align-middle">
                         <thead>
                             <tr>
-                                <th scope="col">部門編號</th>
+                                <th scope="col">員工編號</th>
+                                <th scope="col">員工姓名</th>
                                 <th scope="col">職稱</th>
-                                <th scope="col">部門地點</th>
+                                <th scope="col">薪水</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                       		<c:forEach items="${dept}" var="dept">
+                       		<c:forEach items="${emp}" var="emp">
 								<tr>
-									<td>${dept.deptno}</td>
-									<td>${dept.dname}</td>
-									<td>${dept.loc}</td>
+									<td>${emp.empno}</td>
+									<td>${emp.ename}</td>
+									<td>${emp.job}</td>
+									<td>${emp.sal}</td>
 									<td>
-										<form action="<%=application.getContextPath()%>/dept/getOneForUpdatePage/${dept.deptno}" method="get">
-											<button class="btn btn-warning" type="submit">更改部門</button>
+										<form action="<%=application.getContextPath()%>/emp/getOneForUpdatePage/${emp.empno}" method="get">
+											<button class="btn btn-warning" type="submit">更改員工</button>
 										</form>
 									</td>
 									<td>
-										<form action="<%=application.getContextPath()%>/dept/delete/${dept.deptno}" method="post">
+										<form action="<%=application.getContextPath()%>/emp/delete/${emp.empno}" method="post">
 											<button class="btn btn-danger" type="submit">刪除部門</button>
 										</form>
 									</td>

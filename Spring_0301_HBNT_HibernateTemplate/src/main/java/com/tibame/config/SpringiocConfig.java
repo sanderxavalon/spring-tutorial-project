@@ -1,4 +1,4 @@
-package com.tibame.lab.config;
+package com.tibame.config;
 
 import java.util.Properties;
 
@@ -14,11 +14,11 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = "com.tibame.lab")
+@ComponentScan(basePackages = { "com.tibame.tutorial", "com.tibame.lab" })
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
-public class AppConfig {
-	
+public class SpringiocConfig {
+
 	@Bean
 	public DriverManagerDataSource datasource() {
 		DriverManagerDataSource datasource = new DriverManagerDataSource();
@@ -28,30 +28,30 @@ public class AppConfig {
 		datasource.setPassword("");
 		return datasource;
 	}
-	
+
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(datasource());
-		bean.setPackagesToScan("com.tibame.lab");
-		bean.setHibernateProperties(hibernateProperties());	
+		bean.setPackagesToScan("com.tibame.tutorial", "com.tibame.lab");
+		bean.setHibernateProperties(hibernateProperties());
 		return bean;
 	}
-	
+
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		HibernateTemplate hibernateTemplate = new HibernateTemplate();
 		hibernateTemplate.setSessionFactory(this.sessionFactory().getObject());
 		return hibernateTemplate;
 	}
-	
+
 	@Bean
 	public HibernateTransactionManager transactionManager() {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		txManager.setSessionFactory(this.sessionFactory().getObject());
 		return txManager;
 	}
-	
+
 	private final Properties hibernateProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");

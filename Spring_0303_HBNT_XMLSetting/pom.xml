@@ -79,11 +79,6 @@
 			<version>3.13.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.20.0</version>
-		</dependency>
-		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.10.1</version>
@@ -91,7 +86,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Spring_0303_HBNT_TransactionManager</finalName>
+		<finalName>Spring_0303_HBNT_XMLSetting</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>

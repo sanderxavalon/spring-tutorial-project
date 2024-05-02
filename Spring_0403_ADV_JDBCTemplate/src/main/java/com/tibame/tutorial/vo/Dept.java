@@ -1,5 +1,6 @@
 package com.tibame.tutorial.vo;
 
+
 public class Dept {
 	
 	private Integer deptno;

@@ -17,7 +17,7 @@
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>com.tibame.tutorial.config.TutorialConfig</param-value>
+		<param-value>com.tibame.config.SpringiocConfig</param-value>
 	</context-param>
 
 	<filter>

@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "emp2")
-public class EmpVO {
+@Table(name = "EMP")
+public class Emp {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,6 @@ public class EmpVO {
 	private String job;
 	@Column
 	private BigDecimal sal;
-	@Column
-	private BigDecimal comm;
 	
 	public Integer getEmpno() {
 		return empno;
@@ -49,12 +47,6 @@ public class EmpVO {
 	}
 	public void setSal(BigDecimal sal) {
 		this.sal = sal;
-	}
-	public BigDecimal getComm() {
-		return comm;
-	}
-	public void setComm(BigDecimal comm) {
-		this.comm = comm;
 	}
 	
 }

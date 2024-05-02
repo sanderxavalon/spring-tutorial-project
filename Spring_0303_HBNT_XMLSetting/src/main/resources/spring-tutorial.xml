@@ -14,7 +14,9 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.tibame.tutorial" />
+	<context:component-scan base-package="com.tibame.tutorial" >
+		<context:exclude-filter type="aspectj" expression="com.tibame.tutorial.controller.*"/>		
+	</context:component-scan>
 
 
 
@@ -31,7 +33,7 @@
 
 	<!-- 下面設定與之前AOP相同 -->
 	<aop:config>
-		<aop:pointcut id="pointcut" expression="execution(* com.tibame.tutorial..*(..))" />
+		<aop:pointcut id="pointcut" expression="execution(* com.tibame.tutorial.dao..*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
 	</aop:config>
 
@@ -58,7 +60,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<value>com.tibame.tutorial</value>
+				<value>com.tibame.tutorial.vo</value>
 			</list>
 		</property>
 		<!-- *hbm.xml -->

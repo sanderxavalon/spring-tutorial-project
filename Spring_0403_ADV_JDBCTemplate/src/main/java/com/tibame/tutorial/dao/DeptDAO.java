@@ -28,29 +28,29 @@ public class DeptDAO {
 
 	@Transactional(readOnly = true)
 	public List<Dept> getAll() {
-		return jdbcTemplate.query("SELECT * FROM DEPT2", deptRowMapper);
+		return jdbcTemplate.query("SELECT * FROM DEPT", deptRowMapper);
 	}
 	
 	@Transactional(readOnly = true)
 	public Dept getOne(Integer id) {
-		return jdbcTemplate.queryForObject("SELECT * FROM DEPT2 WHERE DEPTNO = ?", deptRowMapper, id);
+		return jdbcTemplate.queryForObject("SELECT * FROM DEPT WHERE DEPTNO = ?", deptRowMapper, id);
 	}
 	
 	public Integer getLatestDeptNo() {
-		return jdbcTemplate.queryForObject("SELECT DEPTNO FROM DEPT2 ORDER BY DEPTNO DESC LIMIT 1", Integer.class);
+		return jdbcTemplate.queryForObject("SELECT DEPTNO FROM DEPT ORDER BY DEPTNO DESC LIMIT 1", Integer.class);
 	}
 	
 	public void insert(Dept dept) {
 		// Insert/Update 都用update()
-		jdbcTemplate.update("INSERT INTO DEPT2 (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
+		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
 	}
 	
 	public void update(Dept dept) {
-		jdbcTemplate.update("UPDATE DEPT2 SET DNAME = ?, LOC = ? WHERE DEPTNO = ?", dept.getDname(), dept.getLoc(), dept.getDeptno());
+		jdbcTemplate.update("UPDATE DEPT SET DNAME = ?, LOC = ? WHERE DEPTNO = ?", dept.getDname(), dept.getLoc(), dept.getDeptno());
 	}
 	
 	public void delete(Integer id) {
-		jdbcTemplate.update("DELETE FROM DEPT2 WHERE DEPTNO = ?", id);
+		jdbcTemplate.update("DELETE FROM DEPT WHERE DEPTNO = ?", id);
 	}
 
 }

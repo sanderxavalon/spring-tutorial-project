@@ -1,7 +1,6 @@
-package com.tibame.tutorial.config;
+package com.tibame.config;
 
 import java.io.IOException;
-import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -9,13 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
@@ -23,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
-public class AppConfig {
+public class SpringiocConfig {
 
 	@Value("${database.driver}")
 	private String driver;
@@ -51,30 +46,10 @@ public class AppConfig {
 	}
 
 	@Bean
-	public LocalSessionFactoryBean sessionFactory() throws IOException {
-		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
-		bean.setDataSource(datasource());
-		bean.setPackagesToScan("com.tibame.tutorial");
-		bean.setHibernateProperties(hibernateProperties());
-		return bean;
+	public DataSourceTransactionManager transactionManager() {
+		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+		transactionManager.setDataSource(datasource());
+		return transactionManager;
 	}
 
-	@Bean
-	public HibernateTemplate hibernateTemplate() throws IOException {
-		HibernateTemplate hibernateTemplate = new HibernateTemplate();
-		hibernateTemplate.setSessionFactory(this.sessionFactory().getObject());
-		return hibernateTemplate;
-	}
-
-	@Bean
-	public HibernateTransactionManager transactionManager() throws IOException {
-		HibernateTransactionManager txManager = new HibernateTransactionManager();
-		txManager.setSessionFactory(this.sessionFactory().getObject());
-		return txManager;
-	}
-
-	private final Properties hibernateProperties() throws IOException {
-		return PropertiesLoaderUtils.loadProperties(new ClassPathResource(hibernatePropsPath));
-	}
-	
 }

@@ -7,45 +7,41 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
-import com.tibame.tutorial.vo.DeptVO;
-
+import com.tibame.tutorial.vo.Dept;
 
 @Repository
 @Transactional
-public class HibernateDAO {
+public class DeptDAO {
 	
-	private static final String GET_ALL_STMT = "from DeptVO order by deptno";
+	private static final String GET_ALL_STMT = "from Dept order by deptno";
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Transactional(readOnly = true)
-	public List<DeptVO> getAll() {
+	public List<Dept> getAll() {
 		Session session = sessionFactory.getCurrentSession();
-		Query<DeptVO> query = session.createQuery(GET_ALL_STMT, DeptVO.class);
-		List<DeptVO> list = query.getResultList();
+		Query<Dept> query = session.createQuery(GET_ALL_STMT, Dept.class);
+		List<Dept> list = query.getResultList();
 		return list;
 	}
 	
 	@Transactional(readOnly = false)
-	public List<DeptVO> getAllNoReadOnly() {
+	public List<Dept> getAllNoReadOnly() {
 		Session session = sessionFactory.getCurrentSession();
-		Query<DeptVO> query = session.createQuery(GET_ALL_STMT, DeptVO.class);
-		List<DeptVO> list = query.getResultList();
+		Query<Dept> query = session.createQuery(GET_ALL_STMT, Dept.class);
+		List<Dept> list = query.getResultList();
 		return list;
 	}
 	
-	@Transactional(timeout = 1)
+	@Transactional
 	public void saveTimeOut() {
-		DeptVO vo = new DeptVO();
-		vo.setDeptno(6);
+		Dept vo = new Dept();
 		vo.setDname("總務部");
 		vo.setLoc("新北三重");
 		sessionFactory.getCurrentSession().save(vo);
@@ -58,29 +54,34 @@ public class HibernateDAO {
 	
 	@Transactional
 	public void saveWithRuntimeException() {
-		DeptVO vo = new DeptVO();
-		vo.setDeptno(7);
+		Dept vo = new Dept();
 		vo.setDname("人資部");
 		vo.setLoc("新北板橋");
 		sessionFactory.getCurrentSession().save(vo);
-		throw new RuntimeException();
+		throw new RuntimeException("Hi Hi");
 	}
 	
 	@Transactional(noRollbackFor = RuntimeException.class)
 	public void saveNoRollBack() {
-		DeptVO vo = new DeptVO();
-		vo.setDeptno(8);
+		Dept vo = new Dept();
 		vo.setDname("行政部");
 		vo.setLoc("新北永和");
 		sessionFactory.getCurrentSession().save(vo);
-		throw new RuntimeException();
+		throw new RuntimeException("Hi Hi again");
 	}
 	
-//	@Transactional(rollbackFor = Exception.class)
 	@Transactional // 預設情況下是不會為了Checked Exception Rollback
+	public void exceptionNoRollBack() throws IOException {
+		Dept vo = new Dept();
+		vo.setDname("會計部");
+		vo.setLoc("新北中和");
+		sessionFactory.getCurrentSession().save(vo);
+		throw new IOException();	
+	}
+	
+	@Transactional(rollbackFor = Exception.class)
 	public void saveRollBackFor() throws IOException {
-		DeptVO vo = new DeptVO();
-		vo.setDeptno(9);
+		Dept vo = new Dept();
 		vo.setDname("會計部");
 		vo.setLoc("新北中和");
 		sessionFactory.getCurrentSession().save(vo);
@@ -88,13 +89,14 @@ public class HibernateDAO {
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
-	public void saveA(DeptVO vo) {
+	public void saveA(Dept vo) {
 		sessionFactory.getCurrentSession().save(vo);
 	}
 
 	@Transactional
-	public void saveB(DeptVO vo) {
+	public void saveB(Dept vo) {
         sessionFactory.getCurrentSession().save(vo);
 	}
-
+	
+	
 }

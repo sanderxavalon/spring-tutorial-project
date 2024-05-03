@@ -1,4 +1,4 @@
-package com.tibame.tutorial.config;
+package com.tibame.config;
 
 import java.util.Properties;
 
@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = "com.tibame.tutorial")
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
-public class AppConfig {
-	
+public class SpringiocConfig {
+
 	@Bean
 	public DriverManagerDataSource datasource() {
 		DriverManagerDataSource datasource = new DriverManagerDataSource();
@@ -28,23 +28,23 @@ public class AppConfig {
 		datasource.setPassword("");
 		return datasource;
 	}
-	
+
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(datasource());
 		bean.setPackagesToScan("com.tibame.tutorial");
-		bean.setHibernateProperties(hibernateProperties());	
+		bean.setHibernateProperties(hibernateProperties());
 		return bean;
 	}
-	
+
 	@Bean
 	public HibernateTransactionManager transactionManager() {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		txManager.setSessionFactory(this.sessionFactory().getObject());
 		return txManager;
 	}
-	
+
 	private final Properties hibernateProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");

@@ -1,4 +1,4 @@
-package com.tibame.tutorial.config.env;
+package com.tibame.tutorial.env;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -6,12 +6,11 @@ import org.springframework.context.annotation.Profile;
 
 import jakarta.annotation.PostConstruct;
 
-@Configuration
 @Profile("prod")
+@Configuration
 public class ProdConfig {
 
-	@PostConstruct
-	public void prodConfig() {
+	ProdConfig() {
 		System.out.print("Prod 啟動!");
 	}
 }

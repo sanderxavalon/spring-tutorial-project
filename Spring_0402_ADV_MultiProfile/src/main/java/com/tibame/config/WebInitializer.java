@@ -1,4 +1,4 @@
-package com.tibame.tutorial.config;
+package com.tibame.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,13 +9,13 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[]{ AppConfig.class };
+		return new Class<?>[]{ SpringiocConfig.class };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class<?>[]{
-				WebConfig.class
+				SpringmvcConfig.class
 		};
 	}
 
@@ -23,13 +23,11 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	protected String[] getServletMappings() {
 		return new String[]{"/"};
 	}
-
-	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
-        servletContext.setInitParameter("spring.profiles.active", "prod");
-		super.onStartup(servletContext);
-	}
 	
+//	@Override
+//	public void onStartup(ServletContext servletContext) throws ServletException {
+//        servletContext.setInitParameter("spring.profiles.active", "prod");
+//		super.onStartup(servletContext);
+//	}
 	
-
 }

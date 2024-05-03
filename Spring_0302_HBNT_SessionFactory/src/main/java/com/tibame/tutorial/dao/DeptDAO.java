@@ -15,7 +15,7 @@ import com.tibame.tutorial.vo.Dept;
 @Transactional
 public class DeptDAO {
 	
-	private static final String GET_ALL_STMT = "SELECT * FROM DEPT2 ORDER BY DEPTNO";
+	private static final String GET_ALL_STMT = "SELECT * FROM DEPT ORDER BY DEPTNO";
 
 	@Autowired
 	private SessionFactory sessionFactory;

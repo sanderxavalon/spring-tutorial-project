@@ -15,7 +15,7 @@ import com.tibame.lab.vo.Emp;
 @RequestMapping("emp")
 public class EmpController {
 	
-	@Autowired
+	@Autowired(required = false)
 	EmpService empService;
 	
 	@GetMapping("/getAll")

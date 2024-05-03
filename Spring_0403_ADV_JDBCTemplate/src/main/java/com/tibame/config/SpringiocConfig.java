@@ -1,7 +1,5 @@
 package com.tibame.config;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,7 +12,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = "com.tibame.tutorial")
+@ComponentScan(basePackages = { "com.tibame.tutorial", "com.tibame.lab" })
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
@@ -40,8 +38,9 @@ public class SpringiocConfig {
 		datasource.setPassword(password);
 		return datasource;
 	}
-	
-	@Bean JdbcTemplate jdbcTemplate() {
+
+	@Bean
+	JdbcTemplate jdbcTemplate() {
 		return new JdbcTemplate(datasource());
 	}
 

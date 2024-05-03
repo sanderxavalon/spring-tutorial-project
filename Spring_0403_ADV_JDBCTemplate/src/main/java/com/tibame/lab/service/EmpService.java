@@ -7,21 +7,24 @@ import com.tibame.lab.vo.Emp;
 
 public class EmpService {
 	
-	EmpDAO empDAO;
 	
 	public List<Emp> getAll() {
 		return null;
 	}
 	
-	public void save() {
+	public Emp getOne(Integer id) {
+		return null;
+	}
+	
+	public void delete(Integer id) {
 		
 	}
 	
-	public void update() {
+	public void insert(Emp emp) {
 		
 	}
 	
-	public void delete() {
+	public void update(Emp emp){
 		
 	}
 

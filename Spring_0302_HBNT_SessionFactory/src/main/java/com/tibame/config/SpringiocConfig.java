@@ -37,14 +37,7 @@ public class SpringiocConfig {
 		bean.setHibernateProperties(hibernateProperties());
 		return bean;
 	}
-
-	@Bean
-	public HibernateTemplate hibernateTemplate() {
-		HibernateTemplate hibernateTemplate = new HibernateTemplate();
-		hibernateTemplate.setSessionFactory(this.sessionFactory().getObject());
-		return hibernateTemplate;
-	}
-
+	
 	@Bean
 	public HibernateTransactionManager transactionManager() {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();

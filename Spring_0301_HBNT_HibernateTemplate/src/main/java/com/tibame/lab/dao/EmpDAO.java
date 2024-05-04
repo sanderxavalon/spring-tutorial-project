@@ -14,30 +14,26 @@ import com.tibame.tutorial.vo.Dept;
 @Transactional
 public class EmpDAO {
 	
-	@Autowired
+    @Autowired
     private HibernateTemplate hibernateTemplate;
 
 	public List<Emp> getAll() {
-		List<Emp> list = (List<Emp>)hibernateTemplate.loadAll(Emp.class);
-		return list;
+		return null;
 	}
 	
 	public Emp getOne(Integer id) {
-		return hibernateTemplate.get(Emp.class, id);
+		return null;
 	}
 	
 	public void insert(Emp emp) {
-		hibernateTemplate.save(emp);
+		
 	}
 	
 	public void update(Emp emp) {
-		hibernateTemplate.update(emp);
+		
 	}
 	
 	public void delete(Integer id) {
-		Emp emp = new Emp();
-		emp.setEmpno(id);
-		hibernateTemplate.delete(emp);
 		
 	}
 

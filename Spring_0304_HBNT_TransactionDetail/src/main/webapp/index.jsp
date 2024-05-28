@@ -42,10 +42,12 @@
 					<div class="row">
 						<h3>傳播行為</h3>
 						<div class="list-group">
-							  <a class="list-group-item list-group-item-action list-group-item-success" href="${pageContext.request.contextPath}/dept/propagation">REQUIRES_NEW</a>
   							  <a class="list-group-item list-group-item-action list-group-item-success" href="${pageContext.request.contextPath}/dept/propagation/required">Propagation.REQUIRED</a>
+  							  <a class="list-group-item list-group-item-action " href="${pageContext.request.contextPath}/dept/propagation/requirednew">Propagation.REQUIRES_NEW</a>
 							  <a class="list-group-item list-group-item-action list-group-item-success" href="${pageContext.request.contextPath}/dept/propagation/never">Propagation.NEVER</a>
-							  <a class="list-group-item list-group-item-action list-group-item-success" href="${pageContext.request.contextPath}/dept/propagation/mandatory">Propagation.MANDATORY</a>
+							  <a class="list-group-item list-group-item-action " href="${pageContext.request.contextPath}/dept/propagation/mandatory">Propagation.MANDATORY</a>
+							  <a class="list-group-item list-group-item-action list-group-item-success" href="${pageContext.request.contextPath}/dept/propagation/support">Propagation.SUPPORT</a>
+							  <a class="list-group-item list-group-item-action " href="${pageContext.request.contextPath}/dept/propagation/notsupport">Propagation.NOTSUPPORTED</a>
 						</div>
 					</div>
 				</div>

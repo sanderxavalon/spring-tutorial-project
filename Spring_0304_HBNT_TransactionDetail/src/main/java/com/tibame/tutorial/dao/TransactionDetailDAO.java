@@ -25,21 +25,32 @@ public class TransactionDetailDAO {
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void REQUIRED(Dept dept) {
-		// Insert/Update 都用update()
+		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public void REQUIRESNEW(Dept dept) {
+		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
+	}
+	
+	@Transactional(propagation = Propagation.SUPPORTS)
+	public void SUPPORT(Dept dept) {
+		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
+	}
+	
+	@Transactional(propagation = Propagation.MANDATORY)
+	public void MANDATORY(Dept dept) {
 		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
 	}
 	
 	@Transactional(propagation = Propagation.NEVER)
 	public void NEVER(Dept dept) {
-		// Insert/Update 都用update()
 		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
 	}
 	
-	public void MANDATORY(Dept dept) {
-		// Insert/Update 都用update()
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	public void NOTSUPPORTED(Dept dept) {
 		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
 	}
 	
-	
-
 }

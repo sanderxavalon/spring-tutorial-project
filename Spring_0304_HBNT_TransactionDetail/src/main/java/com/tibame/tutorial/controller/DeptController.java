@@ -63,29 +63,41 @@ public class DeptController {
 		deptService.saveRollBackFor();
 		return new ModelAndView("response", "message", "處理完成");
 	}
-
-	@GetMapping("/propagation")
-	public ModelAndView saveAll() {
-		deptService.saveAll();
-		return new ModelAndView("response", "message", "處理完成");
-	}
 	
 	@GetMapping("/propagation/required")
 	public ModelAndView required() {
 		transactionDetailService.REQUIRED();
-		return new ModelAndView("response", "message", "處理完成");
+		return new ModelAndView("response", "message", "REQUIRED處理完成");
+	}
+	
+	@GetMapping("/propagation/requirednew")
+	public ModelAndView requirednew() {
+		transactionDetailService.REQUIRESNEW();
+		return new ModelAndView("response", "message", "REQUIRESNEW處理完成");
 	}
 	
 	@GetMapping("/propagation/never")
 	public ModelAndView never() {
 		transactionDetailService.NEVER();
-		return new ModelAndView("response", "message", "處理完成");
+		return new ModelAndView("response", "message", "NEVER處理完成");
 	}
 	
 	@GetMapping("/propagation/mandatory")
 	public ModelAndView mandatory() {
 		transactionDetailService.MANDATORY();
-		return new ModelAndView("response", "message", "處理完成");
+		return new ModelAndView("response", "message", "MANDATORY處理完成");
+	}
+	
+	@GetMapping("/propagation/support")
+	public ModelAndView support() {
+		transactionDetailService.SUPPORT();
+		return new ModelAndView("response", "message", "SUPPORT處理完成");
+	}
+	
+	@GetMapping("/propagation/notsupport")
+	public ModelAndView notsupport() {
+		transactionDetailService.NOTSUPPORTED();
+		return new ModelAndView("response", "message", "NOTSUPPORTED處理完成");
 	}
 	
 	@ExceptionHandler(RuntimeException.class)

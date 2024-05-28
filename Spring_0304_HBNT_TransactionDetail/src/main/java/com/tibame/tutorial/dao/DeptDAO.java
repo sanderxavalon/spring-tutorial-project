@@ -8,7 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tibame.tutorial.vo.Dept;
@@ -86,16 +85,5 @@ public class DeptDAO {
 		sessionFactory.getCurrentSession().save(vo);
 		throw new IOException();	
 	}
-	
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
-	public void saveA(Dept vo) {
-		sessionFactory.getCurrentSession().save(vo);
-	}
-
-	@Transactional
-	public void saveB(Dept vo) {
-        sessionFactory.getCurrentSession().save(vo);
-	}
-	
 	
 }

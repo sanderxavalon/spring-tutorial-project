@@ -40,6 +40,7 @@ public class SpringiocConfig {
 	@Bean
 	public HibernateTransactionManager transactionManager() {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
+		txManager.setNestedTransactionAllowed(true);
 		txManager.setSessionFactory(this.sessionFactory().getObject());
 		return txManager;
 	}

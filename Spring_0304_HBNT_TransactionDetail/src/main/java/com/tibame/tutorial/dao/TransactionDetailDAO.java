@@ -48,8 +48,13 @@ public class TransactionDetailDAO {
 		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+ 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public void NOTSUPPORTED(Dept dept) {
+		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
+	}
+ 	
+ 	@Transactional(propagation = Propagation.NESTED)
+	public void NESTED(Dept dept) {
 		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
 	}
 	

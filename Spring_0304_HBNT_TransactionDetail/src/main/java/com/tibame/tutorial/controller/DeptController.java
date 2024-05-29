@@ -70,6 +70,12 @@ public class DeptController {
 		return new ModelAndView("response", "message", "REQUIRED處理完成");
 	}
 	
+	@GetMapping("/propagation/required2")
+	public ModelAndView required2() {
+		transactionDetailService.REQUIRED2();
+		return new ModelAndView("response", "message", "REQUIRED處理完成");
+	}
+	
 	@GetMapping("/propagation/requirednew")
 	public ModelAndView requirednew() {
 		transactionDetailService.REQUIRESNEW();
@@ -98,6 +104,18 @@ public class DeptController {
 	public ModelAndView notsupport() {
 		transactionDetailService.NOTSUPPORTED();
 		return new ModelAndView("response", "message", "NOTSUPPORTED處理完成");
+	}
+	
+	@GetMapping("/propagation/nest1")
+	public ModelAndView NEST1() {
+		transactionDetailService.NEST1();
+		return new ModelAndView("response", "message", "NEST1處理完成");
+	}
+	
+	@GetMapping("/propagation/nest2")
+	public ModelAndView NEST2() {
+		transactionDetailService.NEST2();
+		return new ModelAndView("response", "message", "NEST2處理完成");
 	}
 	
 	@ExceptionHandler(RuntimeException.class)

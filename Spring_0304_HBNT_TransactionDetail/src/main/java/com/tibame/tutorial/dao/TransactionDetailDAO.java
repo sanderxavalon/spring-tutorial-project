@@ -57,5 +57,5 @@ public class TransactionDetailDAO {
 	public void NESTED(Dept dept) {
 		jdbcTemplate.update("INSERT INTO DEPT (DEPTNO, DNAME,LOC) VALUES (?,?,?)", dept.getDeptno(), dept.getDname(), dept.getLoc());
 	}
-	
+ 	
 }

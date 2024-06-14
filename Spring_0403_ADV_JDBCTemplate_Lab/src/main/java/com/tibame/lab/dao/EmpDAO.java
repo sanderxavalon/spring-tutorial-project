@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tibame.tutorial.vo.Dept;
+import com.tibame.lab.vo.Emp;
 
 public class EmpDAO {
 	
 	@Transactional(readOnly = true)
-	public List<Dept> getAll() {
+	public List<Emp> getAll() {
 		return new ArrayList<>();
 	}
 	

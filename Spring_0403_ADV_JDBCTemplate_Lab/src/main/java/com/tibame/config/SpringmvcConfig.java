@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"com.tibame.tutorial.controller"})
+@ComponentScan(basePackages = {"com.tibame.lab.controller"})
 public class SpringmvcConfig implements WebMvcConfigurer  {
 	
 	@Bean

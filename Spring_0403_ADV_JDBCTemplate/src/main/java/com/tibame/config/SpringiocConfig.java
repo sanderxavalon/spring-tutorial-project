@@ -12,7 +12,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "com.tibame.tutorial", "com.tibame.lab" })
+@ComponentScan(basePackages = { "com.tibame.tutorial" })
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
@@ -26,8 +26,6 @@ public class SpringiocConfig {
 	private String userName;
 	@Value("${database.password}")
 	private String password;
-	@Value("hibernate.properties")
-	private String hibernatePropsPath;
 
 	@Bean
 	public DriverManagerDataSource datasource() {

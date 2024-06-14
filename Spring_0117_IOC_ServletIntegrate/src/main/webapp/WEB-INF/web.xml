@@ -1,0 +1,36 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 配置監聽器，Spring容器監聽Servlet起來後會將自己初始化 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 指定Spring XML配置的位置，如果是classpath底下的話則需要再前面著明 -->
+	<context-param> 
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring-ioc.xml</param-value> 
+	</context-param>
+	
+	<servlet>
+		<servlet-name>helloworld</servlet-name>
+		<servlet-class>com.tibame.tutorial.controller.HelloWorld</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>helloworld</servlet-name>
+		<url-pattern>/helloworld</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>helloworld2</servlet-name>
+		<servlet-class>com.tibame.tutorial.controller.HelloWorld2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>helloworld2</servlet-name>
+		<url-pattern>/helloworld2</url-pattern>
+	</servlet-mapping>
+</web-app>

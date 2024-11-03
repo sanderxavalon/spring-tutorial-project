@@ -4,7 +4,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LabJointPoint {
+public class LabAspect {
 
     public void labBefore() {
         System.out.println("Before");

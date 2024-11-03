@@ -8,20 +8,26 @@
         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-	<context:component-scan base-package="com.tibame.tutorial"/>
+	<context:component-scan base-package="com.tibame.tutorial, com.tibame.lab"/>
 	
     <aop:config>
-		<aop:aspect id="tutorialAspect" ref="jointPoint">
+		<aop:aspect id="tutorial" ref="tutorialAspect">
+			
 			<aop:pointcut id="before" expression="execution(* com.tibame.tutorial.beans.*.speak*())" />
+			<aop:before pointcut-ref="before" method="concernBefore" />
+			
 			<aop:pointcut id="after" expression="execution(* com.tibame.tutorial.beans.*.bye*())" />
+			<aop:after pointcut-ref="after" method="concernAfterFinally"/>	
+			
 			<aop:pointcut id="afterReturn" expression="execution(* com.tibame.tutorial.beans.*.return*())" />
+			<aop:after-returning pointcut-ref="afterReturn" method="concernAfterReturn" returning="retVal"/>
+			
 			<aop:pointcut id="afterThrow" expression="execution(* com.tibame.tutorial.beans.*.throw*())" />
+			<aop:after-throwing pointcut-ref="afterThrow" method="concernAfterThrow" throwing="exception"/>
+			
 			<aop:pointcut id="around" expression="execution(* com.tibame.tutorial.beans.*.*())" />
-			<aop:before pointcut-ref="before" method="jointpointBefore" />
-	        <aop:after-returning pointcut-ref="afterReturn" method="jointpointAfterReturn" returning="retVal"/>
-	        <aop:after-throwing pointcut-ref="afterThrow" method="jointpointAfterThrow" throwing="exception"/>
-	        <aop:after pointcut-ref="after" method="jointpointAfterFinally"/>	
-    	    <aop:around pointcut-ref="around" method="jointpointAround"/>
+			<aop:around pointcut-ref="around" method="concernAround"/>
+			
 		</aop:aspect>
 	</aop:config>
 </beans>

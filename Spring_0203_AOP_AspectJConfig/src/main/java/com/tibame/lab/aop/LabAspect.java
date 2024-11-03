@@ -1,8 +1,10 @@
 package com.tibame.lab.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.springframework.stereotype.Component;
 
-public class LabJointPoint {
+@Component
+public class LabAspect {
 
     public void labBefore() {
         System.out.println("Before");

@@ -4,35 +4,28 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JointPoint {
+public class TutorialAspect {
 	
-    public void jointpointBefore() {
+    public void concernBefore() {
         System.out.println("Before");
     }
     
-    public void jointpointAfterFinally() {
+    public void concernAfterFinally() {
         System.out.println("After Finally");
     }
     
-    public void jointpointAfterReturn(String retVal) {
+    public void concernAfterReturn(String retVal) {
         System.out.println(retVal);
     }
     
-    public void jointpointAfterThrow(Exception exception) {
+    public void concernAfterThrow(Exception exception) {
         System.out.println("After Throw");
     }
     
-    public Object jointpointAround(ProceedingJoinPoint pjp) throws Throwable {
+    public Object concernAround(ProceedingJoinPoint pjp) throws Throwable {
         long start = System.currentTimeMillis();
         System.out.println("Around啟動!!");
         Object retVal = pjp.proceed();
-//      You can intercept the exception.
-//      Object retVal = null;
-//      try {
-//      	retVal = pjp.proceed();
-//      } catch (Exception e) {
-//			System.out.println("Catch Error:" + e.toString());
-//		}
         System.out.println("耗時:" + (System.currentTimeMillis() - start) + "ms");
         return retVal;
     }

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tibame.lab.beans.Benz;
 import com.tibame.tutorial.beans.BeanA;
 
+
 @Controller
 public class SpringController {
 	
@@ -21,7 +22,7 @@ public class SpringController {
 	
 	
 	@GetMapping("/tutorial/{action}")
-	public ModelAndView tutorialAPI(@PathVariable String action) {
+	public ModelAndView tutorialAPI(@PathVariable("action") String action) {
 		
 		String message = "default";
 		
@@ -54,7 +55,7 @@ public class SpringController {
 	}
 	
 	@GetMapping("/lab/{action}")
-	public ModelAndView labAPI(@PathVariable String action) {
+	public ModelAndView labAPI(@PathVariable("action") String action) {
 		
 		String message = "default";
 		

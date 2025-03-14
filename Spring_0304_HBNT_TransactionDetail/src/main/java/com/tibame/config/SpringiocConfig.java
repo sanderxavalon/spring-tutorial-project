@@ -10,7 +10,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.jta.JtaTransactionManager;
 
 @Configuration
 @ComponentScan(basePackages = "com.tibame.tutorial")
@@ -38,10 +41,9 @@ public class SpringiocConfig {
 	}
 
 	@Bean
-	public HibernateTransactionManager transactionManager() {
-		HibernateTransactionManager txManager = new HibernateTransactionManager();
+	public PlatformTransactionManager txManager() {
+		JpaTransactionManager txManager = new JpaTransactionManager();
 		txManager.setNestedTransactionAllowed(true);
-		txManager.setSessionFactory(this.sessionFactory().getObject());
 		return txManager;
 	}
 	
@@ -56,6 +58,7 @@ public class SpringiocConfig {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.connection.handling_mode", "DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT");
 		return properties;
 	}
 

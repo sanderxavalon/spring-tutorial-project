@@ -42,7 +42,8 @@ public class SpringiocConfig {
 
 	@Bean
 	public PlatformTransactionManager txManager() {
-		JpaTransactionManager txManager = new JpaTransactionManager();
+		HibernateTransactionManager txManager = new HibernateTransactionManager();
+		txManager.setSessionFactory(this.sessionFactory().getObject());
 		txManager.setNestedTransactionAllowed(true);
 		return txManager;
 	}

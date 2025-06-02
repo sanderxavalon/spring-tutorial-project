@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{components/HTMLHeader :: HTMLHeader}"></head>
+<body class="d-flex flex-column h-100">
+
+	<header th:replace="~{components/StickyHeader :: StickyHeader}"></header>
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>Tutorial</h1>
+                </div>
+                <div class="col-md-4 offset-md-4">
+                    <span class="align-middle">
+                        <a th:href="@{/dept/insertPage}" class="btn btn-primary" role="button">新增部門</a>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">部門編號</th>
+                            <th scope="col">職稱</th>
+                            <th scope="col">部門地點</th>
+                            <th scope="col">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr th:each="dept : ${dept}">
+                            <td th:text="${dept.deptno}"></td>
+                            <td th:text="${dept.dname}"></td>
+                            <td th:text="${dept.loc}"></td>
+                            <td>
+                                <a th:href="@{/dept/getOneForUpdatePage/{deptno}(deptno=${dept.deptno})}" class="btn btn-warning" role="button">更改部門</a>
+                            </td>
+                            <td>
+                                <form th:action="@{/dept/delete/{deptno}(deptno=${dept.deptno})}" method="post">
+                                    <button class="btn btn-danger" type="submit">刪除部門</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+<footer th:replace="~{components/StickyFooter :: StickyFooter}"></footer>
+
+</body>
+</html>

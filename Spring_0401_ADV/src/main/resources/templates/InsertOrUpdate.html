@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{components/HTMLHeader :: HTMLHeader}"></head>
+
+<body class="d-flex flex-column h-100">
+
+    <header th:replace="~{components/StickyHeader :: StickyHeader}"></header>
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div th:if="${dept == null}">
+                <h1>新增部門</h1>
+                <form th:action="@{/dept/insert}" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <label for="dname" class="form-label">職稱</label>
+                            <input name="dname" type="text" class="form-control" id="dname">
+                        </div>
+                        <div class="col">
+                            <label for="loc" class="form-label">部門地點</label>
+                            <input name="loc" type="text" class="form-control" id="loc">
+                        </div>
+                    </div>
+                    <div class="row py-3">
+                        <div class="col-md-1">
+                            <button class="btn btn-primary" type="submit">儲存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div th:if="${dept != null}">
+                <h1>改動部門</h1>
+                <form th:action="@{/dept/update}" method="post">
+                    <input type="hidden" name="deptno" th:value="${dept.deptno}" />
+                    <div class="row">
+                        <div class="col">
+                            <label for="dname" class="form-label">職稱</label>
+                            <input name="dname" type="text" class="form-control" id="dname" th:value="${dept.dname}">
+                        </div>
+                        <div class="col">
+                            <label for="loc" class="form-label">部門地點</label>
+                            <input name="loc" type="text" class="form-control" id="loc" th:value="${dept.loc}">
+                        </div>
+                    </div>
+                    <div class="row py-3">
+                        <div class="col-md-1">
+                            <button class="btn btn-primary" type="submit">儲存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer th:replace="~{components/StickyFooter :: StickyFooter}"></footer>
+
+</body>
+</html>

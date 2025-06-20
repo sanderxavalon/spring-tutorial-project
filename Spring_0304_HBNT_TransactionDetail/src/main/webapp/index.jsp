@@ -28,13 +28,13 @@
 								<h3>Rollback for與No Rollback for設定詳細</h3>
 								<div class="list-group">
 									<a class="list-group-item list-group-item-action list-group-item-info"
-										href="${pageContext.request.contextPath}/dept/saveWithRuntimeException">@Transaction一般拋出RuntimeException會Rollback</a>
+										href="${pageContext.request.contextPath}/dept/saveWithRuntimeException">RuntimeException - 拋出會Rollback</a>
 									<a class="list-group-item list-group-item-action"
-										href="${pageContext.request.contextPath}/dept/saveNoRollBack">@Transaction設定拋出RuntimeException也不會Rollback</a>
+										href="${pageContext.request.contextPath}/dept/saveNoRollBack">RuntimeException - 設定No-Rollback-For後，拋出不會Rollback</a>
 									<a class="list-group-item list-group-item-action list-group-item-info"
-										href="${pageContext.request.contextPath}/dept/exceptionNoRollBack">預設情況下，不是RuntimeException(強制try-catch)不會Rollback</a>
+										href="${pageContext.request.contextPath}/dept/exceptionNoRollBack">非RuntimeException - 拋出不會Rollback</a>
 									<a class="list-group-item list-group-item-action"
-										href="${pageContext.request.contextPath}/dept/saveRollBackFor">@Transaction設定拋出不是RuntimeException也會Rollback</a>
+										href="${pageContext.request.contextPath}/dept/saveRollBackFor">非RuntimeException - 設定Rollback-For後，拋出不Rollback</a>
 								</div>
 							</div>
 						</div>

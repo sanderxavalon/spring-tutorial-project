@@ -42,12 +42,12 @@ public class DeptDAO {
 		Dept vo = new Dept();
 		vo.setDname("總務部");
 		vo.setLoc("新北三重");
-		sessionFactory.getCurrentSession().save(vo);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		sessionFactory.getCurrentSession().persist(vo);
 	}
 	
 	@Transactional
@@ -55,7 +55,7 @@ public class DeptDAO {
 		Dept vo = new Dept();
 		vo.setDname("人資部");
 		vo.setLoc("新北板橋");
-		sessionFactory.getCurrentSession().save(vo);
+		sessionFactory.getCurrentSession().persist(vo);
 		throw new RuntimeException("Hi Hi");
 	}
 	
@@ -64,7 +64,7 @@ public class DeptDAO {
 		Dept vo = new Dept();
 		vo.setDname("行政部");
 		vo.setLoc("新北永和");
-		sessionFactory.getCurrentSession().save(vo);
+		sessionFactory.getCurrentSession().persist(vo);
 		throw new RuntimeException("Hi Hi again");
 	}
 	
@@ -73,7 +73,7 @@ public class DeptDAO {
 		Dept vo = new Dept();
 		vo.setDname("會計部");
 		vo.setLoc("新北中和");
-		sessionFactory.getCurrentSession().save(vo);
+		sessionFactory.getCurrentSession().persist(vo);
 		throw new IOException();	
 	}
 	
@@ -82,7 +82,7 @@ public class DeptDAO {
 		Dept vo = new Dept();
 		vo.setDname("會計部");
 		vo.setLoc("新北中和");
-		sessionFactory.getCurrentSession().save(vo);
+		sessionFactory.getCurrentSession().persist(vo);
 		throw new IOException();	
 	}
 	

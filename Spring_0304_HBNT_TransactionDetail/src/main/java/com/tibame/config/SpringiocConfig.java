@@ -41,10 +41,9 @@ public class SpringiocConfig {
 	}
 
 	@Bean
-	public PlatformTransactionManager txManager() {
+	public HibernateTransactionManager txManager() {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		txManager.setSessionFactory(this.sessionFactory().getObject());
-		txManager.setNestedTransactionAllowed(true);
 		return txManager;
 	}
 	
@@ -59,7 +58,6 @@ public class SpringiocConfig {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.connection.handling_mode", "DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT");
 		return properties;
 	}
 
